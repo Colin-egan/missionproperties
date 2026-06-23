@@ -10,6 +10,7 @@ export const metadata = {
 const projects = [
   {
     name: 'Evermore',
+    slug: 'evermore',
     location: 'Mooresville, NC',
     neighborhood: 'Mooresville',
     units: 216,
@@ -21,6 +22,7 @@ const projects = [
   },
   {
     name: 'The Venue on S. Main',
+    slug: 'venue-on-s-main',
     location: 'Cornelius, NC',
     neighborhood: 'Cornelius',
     units: 73,
@@ -32,6 +34,7 @@ const projects = [
   },
   {
     name: 'Bowery West',
+    slug: 'bowery-west',
     location: 'Charlotte, NC',
     neighborhood: 'West Charlotte',
     units: 213,
@@ -43,6 +46,7 @@ const projects = [
   },
   {
     name: 'Christenbury Apartments',
+    slug: 'christenbury',
     location: 'Concord, NC',
     neighborhood: 'Concord',
     units: 156,
@@ -54,6 +58,7 @@ const projects = [
   },
   {
     name: 'Halcyon',
+    slug: 'halcyon',
     location: 'Charleston, SC',
     neighborhood: 'Daniel Island',
     units: 204,
@@ -65,6 +70,7 @@ const projects = [
   },
   {
     name: 'Hamilton Reserve',
+    slug: 'hamilton-reserve',
     location: 'Greensboro, NC',
     neighborhood: 'Greensboro',
     units: 0,
@@ -140,7 +146,7 @@ export default function CurrentProjectsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: 'var(--border)' }}>
             {projects.map((proj, i) => (
               <ScrollReveal key={proj.name} delay={i * 80}>
-                <div className="project-card bg-warm-white flex flex-col h-full">
+                <div id={proj.slug} className="project-card bg-warm-white flex flex-col h-full">
                   {/* Image */}
                   <div className={`project-card-img ${proj.cls}`} style={{ height: '220px', position: 'relative' }}>
                     <div className="absolute inset-0" style={{ background: 'rgba(26,23,20,0.3)' }} />
@@ -153,15 +159,6 @@ export default function CurrentProjectsPage() {
                         {proj.status}
                       </span>
                     </div>
-                    {/* Unit count */}
-                    {proj.units > 0 && (
-                      <div className="absolute bottom-4 right-4">
-                        <span className="font-display font-light text-cream" style={{ fontSize: '1.75rem' }}>
-                          {proj.units}
-                        </span>
-                        <span className="label-sm block text-right" style={{ color: 'rgba(244,239,230,0.5)' }}>units</span>
-                      </div>
-                    )}
                   </div>
 
                   {/* Content */}

@@ -256,41 +256,28 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: 'var(--border)' }}>
             {[
-              {
-                name: 'South End Residences',
-                location: 'Charlotte, NC',
-                units: '214 Units',
-                type: 'High-Density Mixed Use',
-                cls: 'proj-img-1',
-              },
-              {
-                name: 'River District Commons',
-                location: 'Charlotte, NC',
-                units: '312 Units',
-                type: 'Garden-Style',
-                cls: 'proj-img-2',
-              },
-              {
-                name: 'Raleigh Station',
-                location: 'Raleigh, NC',
-                units: '186 Units',
-                type: 'Urban Multifamily',
-                cls: 'proj-img-3',
-              },
+              { name: 'Evermore', slug: 'evermore', location: 'Mooresville, NC', units: '216 Units', type: 'Multifamily', cls: 'proj-img-1' },
+              { name: 'The Venue on S. Main', slug: 'venue-on-s-main', location: 'Cornelius, NC', units: '73 Units', type: 'Mixed Use', cls: 'proj-img-2' },
+              { name: 'Bowery West', slug: 'bowery-west', location: 'Charlotte, NC', units: '213 Units', type: 'Townhomes & Apartments', cls: 'proj-img-3' },
+              { name: 'Christenbury Apartments', slug: 'christenbury', location: 'Concord, NC', units: '156 Units', type: 'Mixed Use', cls: 'proj-img-4' },
+              { name: 'Halcyon', slug: 'halcyon', location: 'Charleston, SC', units: '204 Units', type: 'Multifamily', cls: 'proj-img-5' },
+              { name: 'Hamilton Reserve', slug: 'hamilton-reserve', location: 'Greensboro, NC', units: '6 Buildings', type: 'Multifamily', cls: 'proj-img-6' },
             ].map((proj, i) => (
               <ScrollReveal key={proj.name} delay={i * 100}>
-                <div className="project-card bg-warm-white">
-                  <div className={`project-card-img aspect-[4/3] ${proj.cls} flex items-end p-6`}>
-                    <span className="label-sm" style={{ color: 'rgba(244,239,230,0.4)' }}>
-                      {proj.units}
-                    </span>
+                <Link href={`/current-projects#${proj.slug}`} className="block">
+                  <div className="project-card bg-warm-white">
+                    <div className={`project-card-img aspect-[4/3] ${proj.cls} flex items-end p-6`}>
+                      <span className="label-sm" style={{ color: 'rgba(244,239,230,0.4)' }}>
+                        {proj.units}
+                      </span>
+                    </div>
+                    <div className="p-6">
+                      <p className="label-sm mb-2">{proj.type}</p>
+                      <h3 className="font-display font-light text-xl text-charcoal mb-1">{proj.name}</h3>
+                      <p className="font-sans text-sm" style={{ color: 'var(--warm-gray)' }}>{proj.location}</p>
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <p className="label-sm mb-2">{proj.type}</p>
-                    <h3 className="font-display font-light text-xl text-charcoal mb-1">{proj.name}</h3>
-                    <p className="font-sans text-sm" style={{ color: 'var(--warm-gray)' }}>{proj.location}</p>
-                  </div>
-                </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import ScrollReveal from '@/components/ScrollReveal'
 
@@ -11,6 +12,7 @@ const team = [
   {
     name: 'Jason McArthur',
     title: 'Founder / Principal',
+    photo: '/images/team/jason-mcarthur.webp',
     initials: 'JM',
     bio: [
       'Jason brings over 30 years of multifamily development experience across the Southeastern United States, with more than $2.5 billion in apartment projects developed throughout his career.',
@@ -26,6 +28,7 @@ const team = [
   {
     name: 'Jordan McCarley',
     title: 'Principal',
+    photo: '/images/team/jordan-mccarley.webp',
     initials: 'JC',
     bio: [
       'Jordan brings 16+ years of multifamily capital markets expertise to Mission Properties, with deep relationships across equity, debt, and brokerage circles throughout the Southeast.',
@@ -40,6 +43,7 @@ const team = [
   {
     name: 'Tom Egan',
     title: 'Development Manager',
+    photo: '/images/team/tom-egan.webp',
     initials: 'TE',
     bio: [
       'Tom has spent 8+ years with Mission Properties, overseeing 20 projects representing approximately 2,500 units and $425 million in total project value.',
@@ -54,6 +58,7 @@ const team = [
   {
     name: 'Tara Bechstein',
     title: 'Accounting',
+    photo: '/images/team/tara-bechstein.webp',
     initials: 'TB',
     bio: [
       'Tara brings 17+ years of public accounting experience to Mission Properties, where she has served since April 2021.',
@@ -69,6 +74,7 @@ const team = [
   {
     name: 'Jennifer McArthur',
     title: 'Administrative / Accounting',
+    photo: '/images/team/jennifer-mcarthur.webp',
     initials: 'JM2',
     bio: [
       'Jennifer has provided administrative and accounting services to Mission Properties since 2013, playing a foundational role in the firm\'s back-office operations.',
@@ -124,18 +130,23 @@ export default function TeamPage() {
                 >
                   {/* Left: identity */}
                   <div className="md:col-span-3">
-                    {/* Monogram circle */}
+                    {/* Photo */}
                     <div
-                      className="w-20 h-20 flex items-center justify-center mb-5"
+                      className="mb-5 overflow-hidden"
                       style={{
-                        border: '1px solid var(--border)',
-                        borderRadius: '50%',
-                        background: 'var(--warm-white)',
+                        width: '100%',
+                        maxWidth: '220px',
+                        aspectRatio: '4/5',
+                        position: 'relative',
                       }}
                     >
-                      <span className="font-display font-light text-charcoal" style={{ fontSize: '1.4rem' }}>
-                        {member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
-                      </span>
+                      <Image
+                        src={member.photo}
+                        alt={member.name}
+                        fill
+                        style={{ objectFit: 'cover', objectPosition: 'top' }}
+                        sizes="220px"
+                      />
                     </div>
                     <h2 className="font-display font-light text-charcoal mb-1" style={{ fontSize: '1.75rem', lineHeight: 1.1 }}>
                       {member.name}
