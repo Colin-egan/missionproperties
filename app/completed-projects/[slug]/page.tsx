@@ -25,15 +25,14 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   const project = completedProjects.find((p) => p.slug === slug)
   if (!project) notFound()
 
-  const imgPath = (filename: string) =>
-    `/images/completed-projects/${project.slug}/${encodeURIComponent(filename)}`
+  const heroSrc = `/images/completed-projects/${project.slug}/${encodeURIComponent(project.heroImage)}`
 
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────── */}
       <section className="relative" style={{ height: 'clamp(360px, 55vh, 640px)' }}>
         <Image
-          src={imgPath(project.heroImage)}
+          src={heroSrc}
           alt={project.name}
           fill
           className="object-cover"
@@ -62,7 +61,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
       </section>
 
       {/* ── Tabs: Overview + Gallery ──────────────────────────── */}
-      <ProjectTabs project={project} imgPath={imgPath} />
+      <ProjectTabs project={project} />
 
       {/* ── Navigation ────────────────────────────────────────── */}
       <section className="section-pad-sm" style={{ background: 'var(--charcoal)' }}>

@@ -6,13 +6,14 @@ import type { CompletedProject } from '@/lib/completed-projects'
 
 interface Props {
   project: CompletedProject
-  imgPath: (filename: string) => string
 }
 
 const tabs = ['Overview', 'Gallery'] as const
 type Tab = typeof tabs[number]
 
-export default function ProjectTabs({ project, imgPath }: Props) {
+export default function ProjectTabs({ project }: Props) {
+  const imgPath = (filename: string) =>
+    `/images/completed-projects/${project.slug}/${encodeURIComponent(filename)}`
   const [active, setActive] = useState<Tab>('Overview')
 
   const hasOverviewContent =
