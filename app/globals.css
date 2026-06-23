@@ -19,6 +19,12 @@
   padding: 0;
 }
 
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -184,7 +190,10 @@ body {
 
 /* ─── Button styles ──────────────────────────────────────── */
 .btn-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: 0.875rem 2.5rem;
   background: var(--charcoal);
   color: var(--cream);
@@ -202,7 +211,10 @@ body {
 }
 
 .btn-outline {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: 0.875rem 2.5rem;
   border: 1px solid var(--charcoal);
   color: var(--charcoal);
@@ -220,7 +232,10 @@ body {
 }
 
 .btn-outline-bronze {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: 0.875rem 2.5rem;
   border: 1px solid var(--bronze);
   color: var(--bronze);
@@ -291,6 +306,9 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.35s ease, visibility 0.35s ease;
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 .mobile-nav.open {
@@ -379,8 +397,8 @@ textarea.form-input {
 .container-site {
   max-width: 1280px;
   margin: 0 auto;
-  padding-left: clamp(1.5rem, 5vw, 4rem);
-  padding-right: clamp(1.5rem, 5vw, 4rem);
+  padding-left: max(clamp(1.25rem, 5vw, 4rem), env(safe-area-inset-left));
+  padding-right: max(clamp(1.25rem, 5vw, 4rem), env(safe-area-inset-right));
 }
 
 /* ─── Hero overlay gradient ──────────────────────────────── */

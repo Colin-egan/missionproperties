@@ -118,28 +118,6 @@ export default function CurrentProjectsPage() {
         </div>
       </section>
 
-      {/* ── Filter tags ───────────────────────────────────────── */}
-      <section className="py-6" style={{ background: 'var(--warm-white)', borderBottom: '1px solid var(--border)' }}>
-        <div className="container-site">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="label-sm mr-2">Filter:</span>
-            {['All', 'Charlotte', 'Mooresville', 'Cornelius', 'Concord', 'Greensboro', 'Charleston'].map((tag) => (
-              <span
-                key={tag}
-                className="font-sans text-xs px-3 py-1.5 cursor-pointer transition-colors"
-                style={{
-                  border: '1px solid var(--border)',
-                  color: tag === 'All' ? 'var(--cream)' : 'var(--warm-gray)',
-                  background: tag === 'All' ? 'var(--charcoal)' : 'transparent',
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Projects grid ─────────────────────────────────────── */}
       <section className="section-pad">
         <div className="container-site">
@@ -184,13 +162,23 @@ export default function CurrentProjectsPage() {
       {/* ── Summary stats ─────────────────────────────────────── */}
       <section className="section-pad-sm" style={{ background: 'var(--charcoal)' }}>
         <div className="container-site">
-          <div className="grid grid-cols-3 divide-x" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
-            {[
+          <div className="grid grid-cols-1 sm:grid-cols-3">
+            {([
               { value: `${projects.length}`, label: 'Active Developments' },
               { value: `${projects.reduce((a, b) => a + b.units, 0).toLocaleString()}+`, label: 'Units In Progress' },
               { value: '6', label: 'Southeast Markets' },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center px-6">
+            ] as const).map((stat, i) => (
+              <div
+                key={stat.label}
+                className={`text-center py-8 sm:py-6 px-6 ${
+                  i === 0
+                    ? 'border-b sm:border-b-0'
+                    : i === 1
+                    ? 'border-b sm:border-b-0 sm:border-l'
+                    : 'sm:border-l'
+                }`}
+                style={{ borderColor: 'rgba(255,255,255,0.08)' }}
+              >
                 <div className="font-display font-light text-cream" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', lineHeight: 1 }}>
                   {stat.value}
                 </div>

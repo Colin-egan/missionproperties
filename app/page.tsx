@@ -216,7 +216,7 @@ export default function Home() {
               <p className="label-md">Our Markets</p>
             </div>
           </ScrollReveal>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-px" style={{ background: 'var(--border)' }}>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-px" style={{ background: 'var(--border)' }}>
             {[
               { city: 'Charlotte', state: 'NC' },
               { city: 'Raleigh', state: 'NC' },
