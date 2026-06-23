@@ -5,6 +5,13 @@ export interface CompletedProject {
   address: string
   heroImage: string
   images: string[]
+  units?: string
+  unitTypes?: string
+  squareFootage?: string
+  yearCompleted?: string
+  description?: string
+  amenities?: string[]
+  features?: string[]
 }
 
 export const completedProjects: CompletedProject[] = [
@@ -14,6 +21,24 @@ export const completedProjects: CompletedProject[] = [
     location: 'Raleigh, NC',
     address: '2841 Manorcrest Ct, Raleigh, NC',
     heroImage: '200East - Entry - rendering.jpg',
+    units: '19',
+    unitTypes: 'Studio, 1-bedroom, 2-bedroom',
+    description:
+      'A modern apartment community blending contemporary convenience and timeless style. Anderson Flats features hardwood-inspired flooring, customized kitchens with designer appliances, granite countertops, and frosted glass cabinet accents with soft-close drawers. Massive windows provide abundant natural light throughout every residence.',
+    amenities: [
+      'Saltwater swimming pool',
+      'Fitness center',
+      'Tech center',
+      'Coffee bar',
+      'Game lounge with shuffleboard',
+    ],
+    features: [
+      'Hardwood-inspired flooring',
+      'Designer appliances',
+      'Granite countertops',
+      'Frosted glass cabinet accents with soft-close drawers',
+      'Abundant natural light',
+    ],
     images: [
       '200East - Entry - rendering.jpg',
       'BKU_4930.jpg',
@@ -41,6 +66,19 @@ export const completedProjects: CompletedProject[] = [
     name: 'Tindall Park',
     location: 'Charlotte, NC',
     address: '6023 Tindall Park Dr, Charlotte, NC',
+    units: '37',
+    unitTypes: 'Up to 3-bedroom',
+    squareFootage: 'Up to 2,200 sq ft',
+    description:
+      'Single-level residences nestled in Charlotte\'s sought-after SouthPark neighborhood. Tindall Park offers an elevated living experience with premium materials, generous floorplans featuring full dining rooms and home offices, and finishes that set a new standard for the area.',
+    features: [
+      'Single-level floorplans',
+      'Up to 3 bedrooms',
+      'Full dining rooms',
+      'Home offices',
+      'Premium materials and finishes',
+      'Up to 2,200 square feet',
+    ],
     heroImage: 'TindallPark-1.jpg',
     images: [
       'TindallPark-1.jpg',
@@ -67,6 +105,15 @@ export const completedProjects: CompletedProject[] = [
     name: 'The Langston',
     location: 'Charlotte, NC',
     address: '1925 E. 7th Street, Charlotte, NC',
+    description:
+      'Situated in Charlotte\'s Historic Elizabeth neighborhood, The Langston places residents less than 5 minutes from Uptown. Walk among mature oak trees and historic homes, steps from fine dining, boutique shopping, and vibrant entertainment. Thoughtfully designed with designer cabinetry, spacious closets, and unique floorplans.',
+    features: [
+      'Designer cabinetry',
+      'Spacious closets',
+      'Unique floorplans',
+      'Historic Elizabeth neighborhood',
+      'Walking distance to dining and entertainment',
+    ],
     heroImage: 'The Langston 2.jpg',
     images: [
       'The Langston 2.jpg',
@@ -86,6 +133,19 @@ export const completedProjects: CompletedProject[] = [
     name: '525 East',
     location: 'Charlotte, NC',
     address: '525 East Blvd, Charlotte, NC',
+    units: '24',
+    description:
+      'Twenty-four unique residences custom designed in the style of an early 1900s Dilworth bungalow home. 525 East combines authentic hardwood flooring and traditional millwork with chef\'s kitchens and modern energy efficiency. Located less than a half-mile from the East/West LYNX light-rail station, and listed on the National Register of Historic Places.',
+    features: [
+      'Authentic hardwood flooring',
+      'Traditional millwork',
+      'Designer chef\'s kitchens',
+      'Energy-efficient construction',
+      'National Register of Historic Places',
+      'Less than ½ mile to LYNX light rail',
+      'Walking/biking distance to Latta Park and Atherton Mill',
+      '"Very Walkable" and "Very Bikeable" per WalkScore',
+    ],
     heroImage: '525Still-9.jpg',
     images: [
       '525Still-9.jpg',
@@ -106,6 +166,9 @@ export const completedProjects: CompletedProject[] = [
     name: '708 Summit',
     location: 'Charlotte, NC',
     address: '708 S Summit Ave, Charlotte, NC',
+    unitTypes: 'Studio, 1-bedroom, 2-bedroom',
+    description:
+      'Located in Charlotte\'s sought-after Wesley Heights neighborhood, 708 Summit offers a range of studio through two-bedroom floor plans in a walkable urban setting close to restaurants, parks, and the energy of Uptown Charlotte.',
     heroImage: 'DSC_9761_pt_2_pt_3_pt_4_pt_5_pt.jpg',
     images: [
       'DSC_9761_pt_2_pt_3_pt_4_pt_5_pt.jpg',
@@ -126,6 +189,19 @@ export const completedProjects: CompletedProject[] = [
     name: 'AVA South End',
     location: 'Charlotte, NC',
     address: '335 Doggett Street, Charlotte, NC',
+    description:
+      'Located in the heart of South End\'s hip urban center, AVA South End places residents steps from the LYNX Light Rail, acclaimed dining, entertainment, galleries, and shopping. Generous 9-foot ceilings and granite countertops throughout, with resort-caliber amenities including a private movie theater.',
+    amenities: [
+      'Heated saltwater swimming pool',
+      'Courtyard',
+      'Private movie theater with surround sound and plush seating',
+    ],
+    features: [
+      'Granite countertops throughout',
+      '9-foot ceilings',
+      'Steps from LYNX Light Rail',
+      'South End dining, entertainment, and galleries nearby',
+    ],
     heroImage: 'IMG_7265.jpeg',
     images: [
       'IMG_7265.jpeg',
@@ -144,6 +220,21 @@ export const completedProjects: CompletedProject[] = [
     name: 'MAA 1225',
     location: 'Charlotte, NC',
     address: '1225 S Church St, Charlotte, NC',
+    unitTypes: 'Studio, 1-bedroom, 2-bedroom',
+    description:
+      'An urban-chic luxury apartment community in Charlotte\'s Historic South End. MAA 1225 delivers high-end finishes and an unbeatable location — walking distance to restaurants, museums, and shopping, with easy access to Uptown\'s vibrant lifestyle.',
+    amenities: [
+      'Two heated saltwater pools',
+      'Recreation lounge',
+      'State-of-the-art fitness facility',
+    ],
+    features: [
+      'Clean steel appliances',
+      'Microwave and in-unit washer/dryer',
+      '42" cabinetry',
+      'Historic South End location',
+      'Walking distance to museums and dining',
+    ],
     heroImage: '1 1225south.jpg',
     images: [
       '1 1225south.jpg',
@@ -162,6 +253,19 @@ export const completedProjects: CompletedProject[] = [
     name: 'The Nook',
     location: 'Charlotte, NC',
     address: '1421 Central Avenue, Charlotte, NC',
+    units: '24',
+    unitTypes: '1-bedroom, 2-bedroom',
+    squareFootage: '580–1,050 sq ft',
+    description:
+      'A four-story boutique building in the heart of Plaza Midwood. The Nook\'s 24 "niche" apartments enjoy stunning views of Uptown Charlotte from every unit, with ground-floor retail, covered parking, and elevator access. Steps from the restaurants, bars, and shops of Central and Pecan Avenues.',
+    features: [
+      'Views of Uptown Charlotte from every apartment',
+      'Ground-floor retail',
+      'Covered parking',
+      'Elevator access',
+      'Access control',
+      'Steps from Central Avenue dining and nightlife',
+    ],
     heroImage: 'IMG_7222.jpeg',
     images: [
       'IMG_7222.jpeg',
@@ -180,6 +284,18 @@ export const completedProjects: CompletedProject[] = [
     name: 'Southend Towns',
     location: 'Charlotte, NC',
     address: '1447 S Tryon St, Charlotte, NC',
+    units: '10',
+    unitTypes: '3-bedroom townhomes',
+    squareFootage: '1,300 sq ft',
+    description:
+      'Inspired by SouthEnd\'s unique blend of cutting-edge new development and preservation of historic buildings, Southend Towns combines urban flair with the comfort of townhome living. Each three-bedroom, 3.5-bath residence features an attached garage and easy access to the LYNX Light Rail and South End\'s thriving amenity corridor.',
+    features: [
+      '3 bedrooms, 3.5 baths',
+      'Attached garage',
+      '1,300 square feet',
+      'Easy access to LYNX Light Rail',
+      'South End dining and entertainment nearby',
+    ],
     heroImage: 'IMG_7285.jpeg',
     images: [
       'IMG_7285.jpeg',
@@ -198,6 +314,13 @@ export const completedProjects: CompletedProject[] = [
     name: 'The Griff',
     location: 'Charlotte, NC',
     address: '1835 Morehead Ridge Dr, Charlotte, NC',
+    units: '200+',
+    yearCompleted: '2022',
+    description:
+      'A large-scale mixed-product development comprising three apartment buildings and two townhome buildings, The Griff delivers resort-style living at scale. Completed in 2022, the community features a full-service clubhouse with both indoor and outdoor amenities.',
+    amenities: [
+      'Clubhouse with indoor and outdoor amenities',
+    ],
     heroImage: 'IMG_7345.jpeg',
     images: [
       'IMG_7345.jpeg',
@@ -215,6 +338,13 @@ export const completedProjects: CompletedProject[] = [
     name: 'Plaza 25',
     location: 'Charlotte, NC',
     address: '1114 Clement Ave, Charlotte, NC',
+    unitTypes: '1-bedroom, 2-bedroom',
+    description:
+      'One and two-bedroom apartments set within the thriving Plaza Midwood community — a neighborhood rich in history, culture, and style. Plaza 25 residents enjoy walkable access to Charlotte\'s best restaurants, bars, and boutique shops.',
+    features: [
+      'Plaza Midwood neighborhood',
+      'Walkable to dining, bars, and shops',
+    ],
     heroImage: 'IMG_7234.jpeg',
     images: [
       'IMG_7234.jpeg',
@@ -231,6 +361,17 @@ export const completedProjects: CompletedProject[] = [
     name: '29 North',
     location: 'Hickory, NC',
     address: '112 29th Ave, Hickory, NC',
+    units: '101',
+    unitTypes: '1-bedroom, 2-bedroom, 3-bedroom',
+    squareFootage: '715–1,308 sq ft',
+    description:
+      'Located in northeast Hickory, 29 North offers spacious one, two, and three-bedroom apartments just a 10-minute drive from downtown or the Catawba River landings. With a full amenity package and generous floorplans, 29 North raises the bar for multifamily living in the Hickory market.',
+    amenities: [
+      'Saltwater pool',
+      'Fitness center',
+      'Cardio deck',
+      'Grilling station',
+    ],
     heroImage: 'IMG_7439.jpeg',
     images: [
       'IMG_7439.jpeg',
@@ -247,6 +388,25 @@ export const completedProjects: CompletedProject[] = [
     name: 'Landon Green',
     location: 'Hickory, NC',
     address: 'Hickory, NC',
+    units: '100',
+    unitTypes: 'Townhomes',
+    description:
+      'A 100-unit townhouse rental community in Hickory\'s desirable Viewmont area. Landon Green delivers single-family-home quality in a low-maintenance rental format — complete with private garages, resort-style amenities, and high-end interior finishes throughout.',
+    amenities: [
+      'Resort-style pool with covered seating',
+      'Dog park',
+      'Grilling and picnic areas',
+      '24-hour fitness facility',
+    ],
+    features: [
+      'Private garages with 240-volt car charging',
+      '9-foot ceilings on first and second floors',
+      'Large private patios',
+      'Master suites with his-and-hers closets',
+      'Quartz countertops',
+      'Stainless steel appliances with counter-depth refrigerator',
+      'Hidden-control dishwasher',
+    ],
     heroImage: 'blue wide angle.JPG',
     images: [
       'blue wide angle.JPG',
@@ -263,6 +423,9 @@ export const completedProjects: CompletedProject[] = [
     name: 'Verde Vista Phase II',
     location: 'Asheville, NC',
     address: '4110 Verde Vista Cir, Asheville, NC',
+    units: '56',
+    description:
+      'A single-building addition to the established Verde Vista development in the North Carolina Mountains. Verde Vista Phase II expands an existing community with 56 new apartments, bringing elevated mountain living to more residents in the greater Asheville area.',
     heroImage: 'IMG_7486.jpeg',
     images: [
       'IMG_7486.jpeg',
@@ -277,6 +440,14 @@ export const completedProjects: CompletedProject[] = [
     name: 'Giddy Hall Apartments',
     location: 'Charlotte, NC',
     address: '10951 Netherly Dr, Charlotte, NC',
+    units: '171',
+    yearCompleted: '2023',
+    description:
+      'A 171-unit apartment community set on 10 acres in southwest Charlotte, completed in 2023. Giddy Hall offers residents a well-appointed clubhouse and full amenity package in a spacious, park-like setting.',
+    amenities: [
+      'Clubhouse',
+      'Community amenities on 10 acres',
+    ],
     heroImage: 'IMG_7139.jpeg',
     images: [
       'IMG_7139.jpeg',
@@ -292,6 +463,13 @@ export const completedProjects: CompletedProject[] = [
     name: 'McCullough Towns',
     location: 'Pineville, NC',
     address: '14221 Polk Terrace Lane, Pineville, NC',
+    units: '66',
+    description:
+      'The second phase of the established McCullough community in Pineville, McCullough Towns adds 66 residential units alongside an accompanying retail sector — creating a mixed-use environment that serves both residents and the surrounding neighborhood.',
+    features: [
+      'Second phase of McCullough community',
+      'Accompanying retail sector',
+    ],
     heroImage: 'IMG_7190.jpeg',
     images: [
       'IMG_7190.jpeg',
@@ -305,6 +483,15 @@ export const completedProjects: CompletedProject[] = [
     name: 'Riverside Flats at Aberfoyle Village',
     location: 'Belmont, NC',
     address: '1200 River Dr, Belmont, NC',
+    units: '172',
+    unitTypes: '70 townhomes + 102 apartments',
+    description:
+      'Built on the storied 11-acre site of a former textile mill, Riverside Flats at Aberfoyle Village is a waterfront community on the shores of Lake Wylie. The development weaves together 70 townhomes and 102 apartments, offering direct waterfront access and a sense of place rooted in the site\'s industrial heritage.',
+    features: [
+      '11-acre former textile mill site',
+      'Waterfront access on Lake Wylie',
+      '70 townhomes and 102 apartments',
+    ],
     heroImage: 'IMG_7176.jpeg',
     images: [
       'IMG_7176.jpeg',
@@ -318,6 +505,14 @@ export const completedProjects: CompletedProject[] = [
     name: '511 Queens',
     location: 'Charlotte, NC',
     address: '511 Queens Rd, Charlotte, NC',
+    units: '58',
+    description:
+      'A podium-style apartment building set in Charlotte\'s prestigious Elizabeth neighborhood. 511 Queens offers 58 apartments with exterior on-site parking in one of the city\'s most walkable and historically significant communities.',
+    features: [
+      'Podium-style construction',
+      'Exterior on-site parking',
+      'Elizabeth neighborhood',
+    ],
     heroImage: 'IMG_7254.jpeg',
     images: [
       'IMG_7254.jpeg',
@@ -331,6 +526,14 @@ export const completedProjects: CompletedProject[] = [
     name: 'Waterford Terrace Apartments',
     location: 'Rock Hill, SC',
     address: '823 Carmen Way, Rock Hill, SC',
+    units: '226',
+    yearCompleted: '2015',
+    description:
+      'Completed in late 2015, Waterford Terrace is a 226-unit apartment community in Rock Hill, South Carolina, featuring a full clubhouse and amenity package. The development demonstrates Mission Properties\' reach beyond the Charlotte metro into the broader Southeast region.',
+    amenities: [
+      'Clubhouse',
+      'Community amenities',
+    ],
     heroImage: 'IMG_7128.jpeg',
     images: [
       'IMG_7128.jpeg',
@@ -344,6 +547,15 @@ export const completedProjects: CompletedProject[] = [
     name: 'The Dunloe',
     location: 'Charlotte, NC',
     address: 'Charlotte, NC',
+    units: '20',
+    description:
+      'Twenty boutique apartments tucked into Charlotte\'s historic Lockwood neighborhood, north of Uptown. The Dunloe offers a rare combination of intimate scale and urban connectivity — minutes from the Innovation District, Optimist Park, and NoDa.',
+    features: [
+      'Boutique scale — 20 residences',
+      'Historic Lockwood neighborhood',
+      'Convenient to Innovation District',
+      'Close to Optimist Park and NoDa',
+    ],
     heroImage: 'Wide Angle.JPG',
     images: [
       'Wide Angle.JPG',
@@ -357,6 +569,10 @@ export const completedProjects: CompletedProject[] = [
     name: 'Coronet Way Lofts',
     location: 'Charlotte, NC',
     address: '2957 Coronet Way, Charlotte, NC',
+    units: '36',
+    yearCompleted: '2021',
+    description:
+      'A micro-scale loft project completed in 2021 in North Charlotte. Coronet Way Lofts demonstrates Mission Properties\' ability to execute boutique infill development — delivering 36 homes with the craft and attention to detail typically reserved for much larger communities.',
     heroImage: 'IMG_7351.jpeg',
     images: [
       'IMG_7351.jpeg',
@@ -369,6 +585,8 @@ export const completedProjects: CompletedProject[] = [
     name: 'Park at Drexel',
     location: 'Charlotte, NC',
     address: '4312 Park Rd, Charlotte, NC',
+    description:
+      'Located along Park Road in Charlotte\'s Dilworth corridor, Park at Drexel offers residents a quiet, walkable neighborhood setting with easy access to the dining, shopping, and parks that make this area one of the city\'s most desirable.',
     heroImage: 'IMG_7210.jpeg',
     images: [
       'IMG_7210.jpeg',
