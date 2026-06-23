@@ -401,11 +401,16 @@ textarea.form-input {
 .proj-img-4,
 .proj-img-5,
 .proj-img-6 {
-  background-image: url('/images/property-hero.jpeg');
   background-size: cover;
   background-position: center;
   position: relative;
 }
+.proj-img-1 { background-image: url('/images/current-projects/Evermore.webp'); }
+.proj-img-2 { background-image: url('/images/current-projects/The+Venue+Exterior+1.webp'); }
+.proj-img-3 { background-image: url('/images/current-projects/bowerywest.webp'); }
+.proj-img-4 { background-image: url('/images/current-projects/Christenbury+Exterior.webp'); }
+.proj-img-5 { background-image: url('/images/current-projects/The+Halcyon+Exterior+2.webp'); }
+.proj-img-6 { background-image: url('/images/current-projects/Hamilton+Reserve+Exterior.webp'); }
 /* Overlay sits between photo and card content */
 .proj-img-1::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(46,61,78,0.55); }
 .proj-img-2::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(61,51,40,0.55); }

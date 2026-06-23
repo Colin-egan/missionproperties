@@ -4,74 +4,74 @@ import ScrollReveal from '@/components/ScrollReveal'
 export const metadata = {
   title: 'Current Projects — Mission Properties',
   description:
-    'Explore Mission Properties\' current multifamily developments across Charlotte, Raleigh, Asheville, and the greater Southeast.',
+    'Explore Mission Properties\' current multifamily developments across the Carolinas and greater Southeast.',
 }
 
 const projects = [
   {
-    name: 'South End Residences',
-    location: 'Charlotte, NC',
-    neighborhood: 'South End',
-    units: 214,
-    type: 'High-Density Mixed Use',
+    name: 'Evermore',
+    location: 'Mooresville, NC',
+    neighborhood: 'Mooresville',
+    units: 216,
+    type: 'Multifamily',
     status: 'Under Construction',
     description:
-      'A high-density urban multifamily development in Charlotte\'s rapidly growing South End corridor, featuring ground-floor retail and premium amenity spaces.',
+      'A 216-unit multifamily development in Mooresville, NC, offering modern residential living in one of the Lake Norman region\'s fastest-growing communities.',
     cls: 'proj-img-1',
   },
   {
-    name: 'River District Commons',
-    location: 'Charlotte, NC',
-    neighborhood: 'River District',
-    units: 312,
-    type: 'Garden-Style',
+    name: 'The Venue on S. Main',
+    location: 'Cornelius, NC',
+    neighborhood: 'Cornelius',
+    units: 73,
+    type: 'Mixed Use',
     status: 'Under Construction',
     description:
-      'A large-scale garden-style community in the master-planned River District, offering suburban living with urban connectivity along the Catawba River.',
+      'Comprised of 73 residential units alongside an independent commercial building, The Venue on S. Main brings a vibrant mixed-use presence to the heart of Cornelius.',
     cls: 'proj-img-2',
   },
   {
-    name: 'Raleigh Station',
-    location: 'Raleigh, NC',
-    neighborhood: 'Downtown Core',
-    units: 186,
-    type: 'Urban Multifamily',
-    status: 'Pre-Development',
+    name: 'Bowery West',
+    location: 'Charlotte, NC',
+    neighborhood: 'West Charlotte',
+    units: 213,
+    type: 'Townhomes & Apartments',
+    status: 'Under Construction',
     description:
-      'An urban infill development adjacent to Raleigh\'s transit corridor, positioned to capture demand from the city\'s rapidly growing tech-driven workforce.',
+      'A 213-unit development of townhomes and apartments with resort-style amenities, ideally positioned just outside Uptown Charlotte with outstanding connectivity.',
     cls: 'proj-img-3',
   },
   {
-    name: 'Asheville Highlands',
-    location: 'Asheville, NC',
-    neighborhood: 'West Asheville',
-    units: 152,
-    type: 'Boutique Multifamily',
-    status: 'Pre-Development',
+    name: 'Christenbury Apartments',
+    location: 'Concord, NC',
+    neighborhood: 'Concord',
+    units: 156,
+    type: 'Mixed Use',
+    status: 'Under Construction',
     description:
-      'A boutique multifamily development in West Asheville, designed to complement the neighborhood\'s distinctive character while meeting strong pent-up rental demand.',
+      'A large multi-use development in Concord featuring 156 residential units alongside mixed-use commercial space, designed to serve the growing Cabarrus County market.',
     cls: 'proj-img-4',
   },
   {
-    name: 'Charleston Peninsula',
+    name: 'Halcyon',
     location: 'Charleston, SC',
-    neighborhood: 'Upper Peninsula',
-    units: 228,
-    type: 'Mid-Rise',
+    neighborhood: 'Daniel Island',
+    units: 204,
+    type: 'Multifamily',
     status: 'Under Construction',
     description:
-      'A mid-rise development on Charleston\'s Upper Peninsula capturing the market\'s exceptional demand fundamentals, with rooftop amenities and covered parking.',
+      'Set on Daniel Island, Halcyon consists of 204 units across 7 residential buildings and a dedicated clubhouse, complete with outdoor amenity spaces.',
     cls: 'proj-img-5',
   },
   {
-    name: 'Rock Hill Gateway',
-    location: 'Rock Hill, SC',
-    neighborhood: 'Downtown Adjacent',
-    units: 178,
-    type: 'Garden-Style',
-    status: 'Pre-Development',
+    name: 'Hamilton Reserve',
+    location: 'Greensboro, NC',
+    neighborhood: 'Greensboro',
+    units: 0,
+    type: 'Multifamily',
+    status: 'Under Construction',
     description:
-      'A garden-style community positioned to serve Rock Hill\'s growing workforce as the metro Charlotte footprint continues its southern expansion.',
+      'A 6-building community in Greensboro featuring five residential buildings and a dedicated clubhouse with both indoor and outdoor amenity spaces.',
     cls: 'proj-img-6',
   },
 ]
@@ -107,7 +107,7 @@ export default function CurrentProjectsPage() {
             className="font-sans text-base"
             style={{ color: 'rgba(244,239,230,0.5)', maxWidth: '52ch' }}
           >
-            Active developments across Charlotte, Raleigh, Asheville, Charleston, and Rock Hill.
+            Active developments across Mooresville, Cornelius, Charlotte, Concord, Greensboro, and Charleston.
           </p>
         </div>
       </section>
@@ -117,7 +117,7 @@ export default function CurrentProjectsPage() {
         <div className="container-site">
           <div className="flex flex-wrap items-center gap-3">
             <span className="label-sm mr-2">Filter:</span>
-            {['All', 'Under Construction', 'Pre-Development', 'Charlotte', 'Raleigh', 'Asheville', 'Charleston'].map((tag) => (
+            {['All', 'Charlotte', 'Mooresville', 'Cornelius', 'Concord', 'Greensboro', 'Charleston'].map((tag) => (
               <span
                 key={tag}
                 className="font-sans text-xs px-3 py-1.5 cursor-pointer transition-colors"
@@ -154,12 +154,14 @@ export default function CurrentProjectsPage() {
                       </span>
                     </div>
                     {/* Unit count */}
-                    <div className="absolute bottom-4 right-4">
-                      <span className="font-display font-light text-cream" style={{ fontSize: '1.75rem' }}>
-                        {proj.units}
-                      </span>
-                      <span className="label-sm block text-right" style={{ color: 'rgba(244,239,230,0.5)' }}>units</span>
-                    </div>
+                    {proj.units > 0 && (
+                      <div className="absolute bottom-4 right-4">
+                        <span className="font-display font-light text-cream" style={{ fontSize: '1.75rem' }}>
+                          {proj.units}
+                        </span>
+                        <span className="label-sm block text-right" style={{ color: 'rgba(244,239,230,0.5)' }}>units</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Content */}
@@ -188,7 +190,7 @@ export default function CurrentProjectsPage() {
           <div className="grid grid-cols-3 divide-x" style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
             {[
               { value: `${projects.length}`, label: 'Active Developments' },
-              { value: `${projects.reduce((a, b) => a + b.units, 0).toLocaleString()}`, label: 'Units In Progress' },
+              { value: `${projects.reduce((a, b) => a + b.units, 0).toLocaleString()}+`, label: 'Units In Progress' },
               { value: '6', label: 'Southeast Markets' },
             ].map((stat) => (
               <div key={stat.label} className="text-center px-6">
