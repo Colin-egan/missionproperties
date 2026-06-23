@@ -1,141 +1,118 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import Image from 'next/image'
+import { useState, useEffect } from 'react'
+
+const navLinks = [
+  { href: '/about', label: 'Our Mission' },
+  { href: '/team', label: 'Team' },
+  { href: '/current-projects', label: 'Current Projects' },
+  { href: '/completed-projects', label: 'Completed Projects' },
+  { href: '/contact', label: 'Contact' },
+]
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const pathname = usePathname()
-  const isHome = pathname === '/'
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 60)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    const handler = () => setScrolled(window.scrollY > 40)
+    window.addEventListener('scroll', handler, { passive: true })
+    return () => window.removeEventListener('scroll', handler)
   }, [])
 
-  useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
-    return () => { document.body.style.overflow = '' }
-  }, [mobileOpen])
-
-  const navBg = isHome
-    ? scrolled
-      ? 'bg-warm-white border-b border-border shadow-sm'
-      : 'bg-transparent'
-    : 'bg-warm-white border-b border-border'
-
-  const logoColor = isHome && !scrolled ? 'text-white' : 'text-charcoal'
-  const linkColor = isHome && !scrolled ? 'text-white/80 hover:text-white' : ''
-  const burgerColor = isHome && !scrolled ? 'bg-white' : 'bg-charcoal'
-
   return (
-    <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${navBg}`}
-        style={{ transitionDuration: '400ms' }}
-      >
-        <div className="container-site">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
-            <Link href="/" className={`${logoColor} transition-colors duration-300`}>
-              <div className="font-display font-light tracking-widest text-sm uppercase">
-                Mission Properties
-              </div>
-              <div
-                className="label-sm"
-                style={{ color: isHome && !scrolled ? 'rgba(255,255,255,0.55)' : 'var(--warm-gray)' }}
-              >
-                LLC
-              </div>
-            </Link>
+    <header
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        background: scrolled
+          ? 'rgba(26,23,20,0.95)'
+          : 'transparent',
+        backdropFilter: scrolled ? 'blur(8px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : 'none',
+      }}
+    >
+      <div className="container-site">
+        <nav className="flex items-center justify-between py-4 md:py-5">
+          {/* Logo */}
+          <Link href="/" className="flex items-center" aria-label="Mission Properties home">
+            <Image
+              src="/images/logo-transparent.png"
+              alt="Mission Properties"
+              width={140}
+              height={48}
+              style={{ objectFit: 'contain', filter: 'brightness(0) invert(1)' }}
+              priority
+            />
+          </Link>
 
-            {/* Desktop nav */}
-            <nav className="hidden md:flex items-center gap-8">
-              {/* About dropdown */}
-              <div className="dropdown-parent relative">
-                <span
-                  className={`nav-link cursor-default ${linkColor} ${
-                    pathname.startsWith('/about') || pathname === '/team' ? 'active' : ''
-                  }`}
-                  style={isHome && !scrolled ? { color: 'rgba(255,255,255,0.85)' } : {}}
-                >
-                  About Us
-                </span>
-                <div className="dropdown-menu">
-                  <Link href="/about" className="dropdown-item">Our Mission</Link>
-                  <Link href="/team" className="dropdown-item">Our Team</Link>
-                </div>
-              </div>
-
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map(({ href, label }) => (
               <Link
-                href="/current-projects"
-                className={`nav-link ${linkColor} ${pathname === '/current-projects' ? 'active' : ''}`}
-                style={isHome && !scrolled ? { color: 'rgba(255,255,255,0.85)' } : {}}
+                key={href}
+                href={href}
+                className="font-sans text-sm transition-colors duration-200"
+                style={{ color: 'rgba(244,239,230,0.65)' }}
+                onMouseOver={e => (e.currentTarget.style.color = 'var(--bronze-light)')}
+                onMouseOut={e => (e.currentTarget.style.color = 'rgba(244,239,230,0.65)')}
               >
-                Current Projects
+                {label}
               </Link>
-
-              <Link
-                href="/completed-projects"
-                className={`nav-link ${linkColor} ${pathname === '/completed-projects' ? 'active' : ''}`}
-                style={isHome && !scrolled ? { color: 'rgba(255,255,255,0.85)' } : {}}
-              >
-                Completed Projects
-              </Link>
-
-              <Link href="/contact" className="btn-primary ml-4" style={{ padding: '0.6rem 1.5rem' }}>
-                Contact Us
-              </Link>
-            </nav>
-
-            {/* Mobile burger */}
-            <button
-              onClick={() => setMobileOpen(true)}
-              className="md:hidden flex flex-col gap-1.5 p-2"
-              aria-label="Open navigation"
-            >
-              <span className={`block w-6 h-px transition-colors ${burgerColor}`} />
-              <span className={`block w-4 h-px transition-colors ${burgerColor}`} />
-              <span className={`block w-6 h-px transition-colors ${burgerColor}`} />
-            </button>
+            ))}
           </div>
-        </div>
-      </header>
 
-      {/* Mobile overlay */}
-      <div className={`mobile-nav ${mobileOpen ? 'open' : ''}`}>
-        <button
-          onClick={() => setMobileOpen(false)}
-          className="absolute top-6 right-6 text-cream/60 hover:text-cream transition-colors"
-          aria-label="Close navigation"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
-        </button>
-
-        <nav className="flex flex-col items-center gap-1">
-          <Link href="/" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Home</Link>
-          <Link href="/about" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Our Mission</Link>
-          <Link href="/team" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Our Team</Link>
-          <Link href="/current-projects" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Current Projects</Link>
-          <Link href="/completed-projects" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Completed Projects</Link>
-          <Link href="/contact" className="mobile-nav-link" onClick={() => setMobileOpen(false)}>Contact Us</Link>
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden flex flex-col gap-1.5 p-2"
+            aria-label="Toggle menu"
+            onClick={() => setMenuOpen(o => !o)}
+          >
+            <span
+              className="block w-6 h-px transition-all duration-200"
+              style={{
+                background: 'rgba(244,239,230,0.8)',
+                transform: menuOpen ? 'translateY(5px) rotate(45deg)' : 'none',
+              }}
+            />
+            <span
+              className="block w-6 h-px transition-all duration-200"
+              style={{
+                background: 'rgba(244,239,230,0.8)',
+                opacity: menuOpen ? 0 : 1,
+              }}
+            />
+            <span
+              className="block w-6 h-px transition-all duration-200"
+              style={{
+                background: 'rgba(244,239,230,0.8)',
+                transform: menuOpen ? 'translateY(-5px) rotate(-45deg)' : 'none',
+              }}
+            />
+          </button>
         </nav>
 
-        <div className="absolute bottom-8 text-center">
-          <p className="label-sm" style={{ color: 'rgba(255,255,255,0.3)' }}>
-            (980) 920-2200 &nbsp;·&nbsp; info@missionprop.com
-          </p>
-        </div>
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div
+            className="md:hidden py-6 flex flex-col gap-5"
+            style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
+          >
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className="font-sans text-base"
+                style={{ color: 'rgba(244,239,230,0.75)' }}
+                onClick={() => setMenuOpen(false)}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
-    </>
+    </header>
   )
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import StatCounter from '@/components/StatCounter'
 import ScrollReveal from '@/components/ScrollReveal'
 
@@ -10,22 +11,22 @@ export default function Home() {
         className="relative min-h-screen flex flex-col justify-end"
         style={{ background: 'var(--charcoal)' }}
       >
-        {/* Background texture overlay */}
+        {/* Background property photo */}
+        <Image
+          src="/images/property-hero.jpeg"
+          alt="Mission Properties development"
+          fill
+          priority
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
+          sizes="100vw"
+        />
+
+        {/* Dark overlay so text stays readable */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse at 30% 60%, rgba(46,61,78,0.6) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(184,119,58,0.08) 0%, transparent 50%)',
-          }}
-        />
-
-        {/* Abstract architectural grid lines */}
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(244,239,230,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(244,239,230,0.8) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
+              'linear-gradient(to top, rgba(26,23,20,0.92) 0%, rgba(26,23,20,0.55) 50%, rgba(26,23,20,0.35) 100%)',
           }}
         />
 
@@ -153,9 +154,20 @@ export default function Home() {
               <div className="relative">
                 {/* Primary image block */}
                 <div
-                  className="hero-gradient"
-                  style={{ height: '420px', position: 'relative' }}
+                  style={{ height: '420px', position: 'relative', overflow: 'hidden' }}
                 >
+                  <Image
+                    src="/images/property-hero.jpeg"
+                    alt="Mission Properties development"
+                    fill
+                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  {/* Overlay */}
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: 'rgba(26,23,20,0.45)' }}
+                  />
                   {/* Decorative text overlay */}
                   <div className="absolute inset-0 flex items-end p-8">
                     <div>

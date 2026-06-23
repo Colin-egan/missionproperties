@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -9,10 +10,15 @@ export default function Footer() {
         <div className="py-16 md:py-20 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Brand */}
           <div>
-            <div className="font-display font-light tracking-widest text-sm uppercase mb-1">
-              Mission Properties
-            </div>
-            <div className="label-sm mb-6" style={{ color: 'rgba(255,255,255,0.35)' }}>LLC</div>
+            <Link href="/" aria-label="Mission Properties home">
+              <Image
+                src="/images/logo-gray.png"
+                alt="Mission Properties"
+                width={120}
+                height={40}
+                style={{ objectFit: 'contain', marginBottom: '1.5rem', filter: 'brightness(0) invert(1) opacity(0.7)' }}
+              />
+            </Link>
             <p className="font-sans text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '22ch' }}>
               <em className="font-display font-light" style={{ fontStyle: 'italic', fontSize: '1.05rem' }}>Bespoke</em> multifamily
               development across the Southeastern United States.

@@ -394,22 +394,32 @@ textarea.form-input {
   );
 }
 
-/* ─── Project image placeholders ─────────────────────────── */
-.proj-img-1 {
-  background: linear-gradient(135deg, #2E3D4E 0%, #4A5568 50%, #2E3D4E 100%);
-}
-.proj-img-2 {
-  background: linear-gradient(135deg, #3D3328 0%, #5C4A3A 50%, #3D3328 100%);
-}
-.proj-img-3 {
-  background: linear-gradient(135deg, #2A3828 0%, #445244 50%, #2A3828 100%);
-}
-.proj-img-4 {
-  background: linear-gradient(135deg, #3A2E2E 0%, #5A4444 50%, #3A2E2E 100%);
-}
-.proj-img-5 {
-  background: linear-gradient(135deg, #2E2E3D 0%, #44445A 50%, #2E2E3D 100%);
-}
+/* ─── Project image cards (real photo + tinted overlay) ──── */
+.proj-img-1,
+.proj-img-2,
+.proj-img-3,
+.proj-img-4,
+.proj-img-5,
 .proj-img-6 {
-  background: linear-gradient(135deg, #2E3A3A 0%, #445A5A 50%, #2E3A3A 100%);
+  background-image: url('/images/property-hero.jpeg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+/* Overlay sits between photo and card content */
+.proj-img-1::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(46,61,78,0.55); }
+.proj-img-2::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(61,51,40,0.55); }
+.proj-img-3::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(42,56,40,0.55); }
+.proj-img-4::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(58,46,46,0.55); }
+.proj-img-5::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(46,46,61,0.55); }
+.proj-img-6::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(46,58,58,0.55); }
+/* Children render above the overlay */
+.proj-img-1 > *,
+.proj-img-2 > *,
+.proj-img-3 > *,
+.proj-img-4 > *,
+.proj-img-5 > *,
+.proj-img-6 > * {
+  position: relative;
+  z-index: 1;
 }
