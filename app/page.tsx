@@ -13,7 +13,7 @@ export default function Home() {
       >
         {/* Background property photo */}
         <Image
-          src="/images/property-hero.jpeg"
+          src="/images/prop-hero.png"
           alt="Mission Properties development"
           fill
           priority
@@ -157,7 +157,7 @@ export default function Home() {
                   style={{ height: '420px', position: 'relative', overflow: 'hidden' }}
                 >
                   <Image
-                    src="/images/property-hero.jpeg"
+                    src="/images/prop-hero.png"
                     alt="Mission Properties development"
                     fill
                     style={{ objectFit: 'cover', objectPosition: 'center' }}
@@ -295,7 +295,7 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {[
               {
                 name: 'Jason McArthur',
@@ -303,13 +303,6 @@ export default function Home() {
                 highlight: '$2.5B+',
                 desc: 'in apartment projects across the Southeast over 30+ years',
                 initials: 'JM',
-              },
-              {
-                name: 'Jordan McCarley',
-                title: 'Principal',
-                highlight: '$20B+',
-                desc: 'in sales volume across 700+ capital markets transactions',
-                initials: 'JC',
               },
               {
                 name: 'Tom Egan',

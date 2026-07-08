@@ -5,7 +5,7 @@ import ScrollReveal from '@/components/ScrollReveal'
 export const metadata = {
   title: 'Our Team — Mission Properties',
   description:
-    'Meet the Mission Properties team: Jason McArthur, Jordan McCarley, Tom Egan, Tara Bechstein, and Jennifer McArthur — decades of combined expertise in multifamily development.',
+    'Meet the Mission Properties team: Jason McArthur, Tom Egan, Tara Bechstein, and Jennifer McArthur — decades of combined expertise in multifamily development.',
 }
 
 const team = [
@@ -24,21 +24,6 @@ const team = [
       'MBA — UNC Kenan-Flagler Business School',
     ],
     personal: 'Resides in Charlotte with his wife Jennifer and their five children.',
-  },
-  {
-    name: 'Jordan McCarley',
-    title: 'Principal',
-    photo: '/images/team/jordan-mccarley.webp',
-    initials: 'JC',
-    bio: [
-      'Jordan brings 16+ years of multifamily capital markets expertise to Mission Properties, with deep relationships across equity, debt, and brokerage circles throughout the Southeast.',
-      'He began his career in 2005 at Southeast Apartment Partners in Atlanta before expanding to the Carolinas market in 2007. He was named partner in 2011 when the firm became Multi Housing Advisors.',
-      'Jordan served in leadership at Cushman & Wakefield, departing in 2021 as Executive Vice Chair of Capital Markets. Over his career, he has been involved in 700 transactions totaling more than $20 billion in sales volume.',
-    ],
-    education: [
-      'BBA, Risk Management — University of Georgia',
-    ],
-    personal: 'Lives in Charlotte with his wife Ellen and their three sons.',
   },
   {
     name: 'Tom Egan',
