@@ -8,16 +8,16 @@ export default function Home() {
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section
-        className="relative min-h-screen flex flex-col justify-end"
+        className="relative min-h-screen flex flex-col justify-end overflow-hidden"
         style={{ background: 'var(--charcoal)' }}
       >
         {/* Background property photo */}
         <Image
-          src="/images/prop-hero.png"
-          alt="Mission Properties development"
+          src="/images/current-projects/bowerywest.webp"
+          alt="Bowery West, a Mission Properties multifamily development in Charlotte, NC"
           fill
           priority
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
+          style={{ objectFit: 'cover', objectPosition: '50% 40%' }}
           sizes="100vw"
         />
 
@@ -31,7 +31,7 @@ export default function Home() {
         />
 
         {/* Content */}
-        <div className="container-site relative z-10 pb-16 md:pb-24 pt-32">
+        <div className="container-site relative z-10 pb-16 md:pb-24 pt-32 md:-ml-10 lg:-ml-24">
           <div className="max-w-5xl">
             {/* Eyebrow */}
             <div className="flex items-center gap-4 mb-10">
@@ -157,8 +157,8 @@ export default function Home() {
                   style={{ height: '420px', position: 'relative', overflow: 'hidden' }}
                 >
                   <Image
-                    src="/images/prop-hero.png"
-                    alt="Mission Properties development"
+                    src="/images/current-projects/The+Halcyon+Exterior+2.webp"
+                    alt="The Halcyon, a Mission Properties multifamily development in Charleston, SC"
                     fill
                     style={{ objectFit: 'cover', objectPosition: 'center' }}
                     sizes="(max-width: 768px) 100vw, 50vw"
