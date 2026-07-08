@@ -31,7 +31,7 @@ export default function Home() {
         />
 
         {/* Content */}
-        <div className="container-site relative z-10 pb-16 md:pb-24 pt-32 md:-ml-4 lg:-ml-10">
+        <div className="container-site relative z-10 pb-16 md:pb-24 pt-44 md:pt-32 md:-ml-4 lg:-ml-10">
           <div className="max-w-5xl">
             {/* Eyebrow */}
             <div className="flex items-center gap-4 mb-10 mt-10 md:mt-0">
