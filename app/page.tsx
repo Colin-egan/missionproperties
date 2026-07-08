@@ -152,7 +152,7 @@ export default function Home() {
                     src="/images/markets-map.jpeg"
                     alt="Map of Mission Properties markets across North and South Carolina, including Charlotte, Raleigh, Asheville, Hickory, Rock Hill, and Charleston"
                     fill
-                    style={{ objectFit: 'cover', objectPosition: 'center' }}
+                    className="object-cover object-[50%_20%] sm:object-center"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
