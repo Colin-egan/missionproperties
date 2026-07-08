@@ -72,14 +72,6 @@ export default function Home() {
               </Link>
             </div>
           </div>
-
-          {/* Scroll indicator */}
-          <div className="absolute bottom-0 right-0 pb-8 pr-8 hidden md:flex flex-col items-center gap-2">
-            <p className="label-sm" style={{ color: 'rgba(244,239,230,0.3)', writingMode: 'vertical-rl' }}>
-              Scroll
-            </p>
-            <div style={{ width: 1, height: '3rem', background: 'rgba(244,239,230,0.15)' }} />
-          </div>
         </div>
       </section>
 
@@ -163,30 +155,6 @@ export default function Home() {
                     style={{ objectFit: 'cover', objectPosition: 'center' }}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
-                  {/* Overlay */}
-                  <div
-                    className="absolute inset-0"
-                    style={{ background: 'rgba(26,23,20,0.45)' }}
-                  />
-                  {/* Decorative text overlay */}
-                  <div className="absolute inset-0 flex items-end p-8">
-                    <div>
-                      <p className="font-display font-light text-cream/20" style={{ fontSize: '5rem', lineHeight: 1 }}>SE</p>
-                      <div className="label-sm" style={{ color: 'rgba(244,239,230,0.35)' }}>
-                        Southeast United States
-                      </div>
-                    </div>
-                  </div>
-                  {/* Geographic markers */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="grid grid-cols-2 gap-3 text-center">
-                      {['Charlotte', 'Raleigh', 'Asheville', 'Charleston', 'Hickory', 'Rock Hill'].map((city) => (
-                        <div key={city} className="px-3 py-1.5" style={{ border: '1px solid rgba(244,239,230,0.12)' }}>
-                          <span className="label-sm" style={{ color: 'rgba(244,239,230,0.4)' }}>{city}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
                 </div>
 
                 {/* Floating stat card */}
