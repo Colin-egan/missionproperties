@@ -159,8 +159,8 @@ export default function Home() {
 
                 {/* Floating stat card */}
                 <div
-                  className="absolute -bottom-6 -right-6 bg-bronze p-6 hidden md:block"
-                  style={{ minWidth: '180px' }}
+                  className="absolute -bottom-6 -right-6 p-6 hidden md:block"
+                  style={{ minWidth: '180px', background: '#000000' }}
                 >
                   <div className="font-display font-light text-cream" style={{ fontSize: '2.5rem', lineHeight: 1 }}>
                     30+
