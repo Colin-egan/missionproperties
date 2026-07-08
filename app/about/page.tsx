@@ -75,8 +75,8 @@ export default function AboutPage() {
               </h2>
               <div className="font-sans text-base leading-relaxed space-y-5" style={{ color: 'var(--warm-gray)' }}>
                 <p>
-                  Mission Properties, LLC is a Charlotte-based real estate development firm
-                  specializing in{' '}
+                  Established in 2004, Mission Properties, LLC is a Charlotte-based real estate
+                  development firm specializing in{' '}
                   <em className="font-display" style={{ fontStyle: 'italic', fontSize: '1.05em', color: 'var(--charcoal)' }}>bespoke</em>{' '}
                   multifamily housing. Since our inception, the persistence and ambition of our
                   people has resulted in nearly{' '}

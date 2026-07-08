@@ -184,6 +184,17 @@ export default function Home() {
               <p className="label-md">Our Markets</p>
             </div>
           </ScrollReveal>
+          <ScrollReveal delay={80}>
+            <div className="relative mx-auto mb-12" style={{ maxWidth: '900px', aspectRatio: '1024 / 720' }}>
+              <Image
+                src="/images/markets-map.jpeg"
+                alt="Map of Mission Properties markets across North and South Carolina, including Charlotte, Raleigh, Asheville, Hickory, Rock Hill, and Charleston"
+                fill
+                style={{ objectFit: 'contain' }}
+                sizes="(max-width: 900px) 100vw, 900px"
+              />
+            </div>
+          </ScrollReveal>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-px" style={{ background: 'var(--border)' }}>
             {[
               { city: 'Charlotte', state: 'NC' },
