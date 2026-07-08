@@ -146,7 +146,7 @@ export default function Home() {
               <div className="relative">
                 {/* Primary image block */}
                 <div
-                  className="relative overflow-hidden aspect-[1024/720] md:aspect-auto md:h-[420px]"
+                  className="relative overflow-hidden aspect-[4/3] md:aspect-auto md:h-[420px]"
                 >
                   <Image
                     src="/images/markets-map.jpeg"
@@ -157,9 +157,9 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Floating stat card */}
+                {/* Stat card: stacked below the image on mobile, floating on desktop */}
                 <div
-                  className="absolute -bottom-6 -right-6 p-6 hidden md:block"
+                  className="mt-4 md:mt-0 md:absolute md:-bottom-6 md:-right-6 p-6 inline-block"
                   style={{ minWidth: '180px', background: '#000000' }}
                 >
                   <div className="font-display font-light text-cream" style={{ fontSize: '2.5rem', lineHeight: 1 }}>
