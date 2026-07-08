@@ -34,7 +34,7 @@ export default function Home() {
         <div className="container-site relative z-10 pb-16 md:pb-24 pt-44 md:pt-32 md:-ml-4 lg:-ml-10">
           <div className="max-w-5xl">
             {/* Eyebrow */}
-            <div className="flex items-center gap-4 mb-10 mt-10 md:mt-0">
+            <div className="hidden md:flex items-center gap-4 mb-10">
               <div className="bronze-rule" />
               <p className="label-md" style={{ color: 'rgba(244,239,230,0.5)' }}>
                 Charlotte, NC — Est. 2004
