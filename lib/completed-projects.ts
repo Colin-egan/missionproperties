@@ -146,7 +146,7 @@ export const completedProjects: CompletedProject[] = [
       'Walking/biking distance to Latta Park and Atherton Mill',
       '"Very Walkable" and "Very Bikeable" per WalkScore',
     ],
-    heroImage: '525Still-9.jpg',
+    heroImage: '525Still-3.jpg',
     images: [
       '525Still-9.jpg',
       '525Still-3.jpg',
@@ -169,7 +169,7 @@ export const completedProjects: CompletedProject[] = [
     unitTypes: 'Studio, 1-bedroom, 2-bedroom',
     description:
       'Located in Charlotte\'s sought-after Wesley Heights neighborhood, 708 Summit offers a range of studio through two-bedroom floor plans in a walkable urban setting close to restaurants, parks, and the energy of Uptown Charlotte.',
-    heroImage: 'DSC_9761_pt_2_pt_3_pt_4_pt_5_pt.jpg',
+    heroImage: 'IMG_7313.jpeg',
     images: [
       'DSC_9761_pt_2_pt_3_pt_4_pt_5_pt.jpg',
       'DSC_9771_pt_2_pt_3_pt_4_pt_5_pt.jpg',
@@ -235,7 +235,7 @@ export const completedProjects: CompletedProject[] = [
       'Historic South End location',
       'Walking distance to museums and dining',
     ],
-    heroImage: '1 1225south.jpg',
+    heroImage: 'IMG_7296.jpeg',
     images: [
       '1 1225south.jpg',
       'IMG_7296.jpeg',
@@ -321,7 +321,7 @@ export const completedProjects: CompletedProject[] = [
     amenities: [
       'Clubhouse with indoor and outdoor amenities',
     ],
-    heroImage: 'IMG_7345.jpeg',
+    heroImage: 'IMG_7332.jpeg',
     images: [
       'IMG_7345.jpeg',
       'IMG_7329.jpeg',
