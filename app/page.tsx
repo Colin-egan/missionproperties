@@ -8,7 +8,7 @@ export default function Home() {
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section
-        className="relative min-h-screen flex flex-col justify-end overflow-hidden"
+        className="relative min-h-[75vh] sm:min-h-[85vh] md:min-h-screen flex flex-col justify-end overflow-hidden"
         style={{ background: 'var(--charcoal)' }}
       >
         {/* Background property photo */}
@@ -146,7 +146,7 @@ export default function Home() {
               <div className="relative">
                 {/* Primary image block */}
                 <div
-                  style={{ height: '420px', position: 'relative', overflow: 'hidden' }}
+                  className="relative overflow-hidden aspect-[1024/720] md:aspect-auto md:h-[420px]"
                 >
                   <Image
                     src="/images/markets-map.jpeg"
