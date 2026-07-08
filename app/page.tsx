@@ -37,7 +37,7 @@ export default function Home() {
             <div className="flex items-center gap-4 mb-10">
               <div className="bronze-rule" />
               <p className="label-md" style={{ color: 'rgba(244,239,230,0.5)' }}>
-                Charlotte, NC — Est. Since Inception
+                Charlotte, NC — Est. 2004
               </p>
             </div>
 
