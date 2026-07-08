@@ -44,12 +44,11 @@ export default function CompletedProjectsPage() {
       {/* ── Stats bar ─────────────────────────────────────────── */}
       <section className="py-8" style={{ background: 'var(--warm-white)', borderBottom: '1px solid var(--border)' }}>
         <div className="container-site">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             {[
               { value: `${completedProjects.length}+`, label: 'Completed Projects' },
               { value: '5,000+', label: 'Rental Units Delivered' },
               { value: '$1B+', label: 'Portfolio Value' },
-              { value: '5', label: 'States' },
             ].map((s) => (
               <div key={s.label}>
                 <div className="font-display font-light text-charcoal" style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)', lineHeight: 1 }}>
