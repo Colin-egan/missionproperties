@@ -235,7 +235,7 @@ export default function Home() {
                 <Link href={`/current-projects#${proj.slug}`} className="block">
                   <div className="project-card bg-warm-white">
                     <div className={`project-card-img aspect-[4/3] ${proj.cls} flex items-end p-6`}>
-                      <span className="label-sm" style={{ color: 'rgba(244,239,230,0.4)' }}>
+                      <span className="label-sm" style={{ color: '#F4EFE6', textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>
                         {proj.units}
                       </span>
                     </div>

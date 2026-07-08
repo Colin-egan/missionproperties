@@ -127,7 +127,6 @@ export default function CurrentProjectsPage() {
                 <div id={proj.slug} className="project-card bg-warm-white flex flex-col h-full">
                   {/* Image */}
                   <div className={`project-card-img ${proj.cls}`} style={{ height: '220px', position: 'relative' }}>
-                    <div className="absolute inset-0" style={{ background: 'rgba(26,23,20,0.3)' }} />
                     {/* Status badge */}
                     <div className="absolute top-4 left-4">
                       <span

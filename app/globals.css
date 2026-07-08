@@ -429,14 +429,7 @@ textarea.form-input {
 .proj-img-4 { background-image: url('/images/current-projects/Christenbury+Exterior.webp'); }
 .proj-img-5 { background-image: url('/images/current-projects/The+Halcyon+Exterior+2.webp'); }
 .proj-img-6 { background-image: url('/images/current-projects/Hamilton+Reserve+Exterior.webp'); }
-/* Overlay sits between photo and card content */
-.proj-img-1::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(46,61,78,0.55); }
-.proj-img-2::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(61,51,40,0.55); }
-.proj-img-3::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(42,56,40,0.55); }
-.proj-img-4::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(58,46,46,0.55); }
-.proj-img-5::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(46,46,61,0.55); }
-.proj-img-6::after { content: ''; position: absolute; inset: 0; z-index: 0; background: rgba(46,58,58,0.55); }
-/* Children render above the overlay */
+/* Children render above the photo */
 .proj-img-1 > *,
 .proj-img-2 > *,
 .proj-img-3 > *,

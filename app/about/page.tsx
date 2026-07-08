@@ -158,8 +158,8 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: 'var(--border)' }}>
             {capabilities.map((cap, i) => (
-              <ScrollReveal key={cap.title} delay={i * 80}>
-                <div className="bg-warm-white p-8 md:p-10">
+              <ScrollReveal key={cap.title} delay={i * 80} className="h-full">
+                <div className="bg-warm-white p-8 md:p-10 h-full">
                   <p className="label-sm mb-3" style={{ color: 'var(--bronze)' }}>{cap.label}</p>
                   <h3 className="font-display font-light text-charcoal mb-3" style={{ fontSize: '1.6rem' }}>
                     {cap.title}
