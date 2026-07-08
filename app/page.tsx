@@ -13,11 +13,11 @@ export default function Home() {
       >
         {/* Background property photo */}
         <Image
-          src="/images/current-projects/bowerywest.webp"
-          alt="Bowery West, a Mission Properties multifamily development in Charlotte, NC"
+          src="/images/prop-hero.png"
+          alt="Mission Properties development"
           fill
           priority
-          style={{ objectFit: 'cover', objectPosition: '50% 40%' }}
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
           sizes="100vw"
         />
 
@@ -31,7 +31,7 @@ export default function Home() {
         />
 
         {/* Content */}
-        <div className="container-site relative z-10 pb-16 md:pb-24 pt-32 md:-ml-10 lg:-ml-24">
+        <div className="container-site relative z-10 pb-16 md:pb-24 pt-32 md:-ml-4 lg:-ml-10">
           <div className="max-w-5xl">
             {/* Eyebrow */}
             <div className="flex items-center gap-4 mb-10">
