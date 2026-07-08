@@ -62,8 +62,8 @@ export default function Home() {
               bespoke multifamily development
             </p>
 
-            {/* CTA row */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-12">
+            {/* CTA row (desktop: overlaid on the hero image) */}
+            <div className="hidden md:flex gap-4 mt-12">
               <Link href="/current-projects" className="btn-outline-bronze">
                 View Our Projects
               </Link>
@@ -74,6 +74,20 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* CTA row (mobile: below the hero image) */}
+      <div className="md:hidden" style={{ background: 'var(--charcoal)' }}>
+        <div className="container-site py-8">
+          <div className="flex flex-col gap-4">
+            <Link href="/current-projects" className="btn-outline-bronze">
+              View Our Projects
+            </Link>
+            <Link href="/about" className="btn-outline" style={{ borderColor: 'rgba(244,239,230,0.3)', color: 'rgba(244,239,230,0.7)' }}>
+              Our Mission
+            </Link>
+          </div>
+        </div>
+      </div>
 
       {/* ── Stats ─────────────────────────────────────────────── */}
       <section className="section-pad bg-warm-white">
