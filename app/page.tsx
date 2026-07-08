@@ -17,7 +17,7 @@ export default function Home() {
           alt="Mission Properties development"
           fill
           priority
-          style={{ objectFit: 'cover', objectPosition: 'center' }}
+          className="object-cover object-[50%_20%] sm:object-center"
           sizes="100vw"
         />
 
