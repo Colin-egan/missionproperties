@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import ScrollReveal from '@/components/ScrollReveal'
+import { getTeamMembers } from '@/lib/team'
 
 export const metadata = {
   title: 'Our Team — Mission Properties',
@@ -8,71 +9,9 @@ export const metadata = {
     'Meet the Mission Properties team: Jason McArthur, Tom Egan, Tara Bechstein, and Jennifer McArthur — decades of combined expertise in multifamily development.',
 }
 
-const team = [
-  {
-    name: 'Jason McArthur',
-    title: 'Founder / Principal',
-    photo: '/images/team/jason-mcarthur.webp',
-    initials: 'JM',
-    bio: [
-      'Jason brings over 30 years of multifamily development experience across the Southeastern United States, with more than $2.5 billion in apartment projects developed throughout his career.',
-      'He began his career at Gables Residential Trust before founding the South Florida division of Wood Partners, growing the division from a one-man operation to a team of more than 20 professionals.',
-      'Jason returned to the Carolinas in 2007 and founded Mission Properties, which has since completed 40+ projects comprising over 5,000 rental units valued at more than $1 billion.',
-    ],
-    education: [
-      'B.A. — University of North Carolina at Chapel Hill',
-      'MBA — UNC Kenan-Flagler Business School',
-    ],
-    personal: 'Resides in Charlotte with his wife Jennifer and their five children.',
-  },
-  {
-    name: 'Tom Egan',
-    title: 'Development Manager',
-    photo: '/images/team/tom-egan.webp',
-    initials: 'TE',
-    bio: [
-      'Tom has spent 8+ years with Mission Properties, overseeing 20 projects representing approximately 2,500 units and $425 million in total project value.',
-      'His role spans all phases of project execution — managing schedules, billing, and consultant teams from pre-development through delivery. He previously worked at David Furman Architecture and Andrew Roby General Contractors, giving him a uniquely holistic view of the development process.',
-      'Tom has served as Chairperson of both the Charlotte Historic District Commission and the Charlotte-Mecklenburg Historic Landmarks Commission.',
-    ],
-    education: [
-      'B.A., Architectural Design — Clemson University',
-    ],
-    personal: 'Resides in Wilmington, NC with his wife Nancy and three children.',
-  },
-  {
-    name: 'Tara Bechstein',
-    title: 'Accounting',
-    photo: '/images/team/tara-bechstein.webp',
-    initials: 'TB',
-    bio: [
-      'Tara brings 17+ years of public accounting experience to Mission Properties, where she has served since April 2021.',
-      'She began her career at Grant Thornton in Charlotte before joining a local accounting firm, developing deep expertise in real estate and construction accounting.',
-    ],
-    education: [
-      'B.S., Business Administration (Accounting) — Bowling Green State University',
-      'Masters of Accountancy — Bowling Green State University',
-      'Licensed CPA — State of North Carolina',
-    ],
-    personal: 'Originally from Ohio; resides in Charlotte with her husband Drew and two sons.',
-  },
-  {
-    name: 'Jennifer McArthur',
-    title: 'Administrative / Accounting',
-    photo: '/images/team/jennifer-mcarthur.webp',
-    initials: 'JM2',
-    bio: [
-      'Jennifer has provided administrative and accounting services to Mission Properties since 2013, playing a foundational role in the firm\'s back-office operations.',
-      'Prior to Mission Properties, she gained experience in fundraising at Brookstone Schools and Duke University, as well as roles in human resources and IT.',
-    ],
-    education: [
-      'B.A., Political Science — Vanderbilt University (1995)',
-    ],
-    personal: 'Married to founder Jason McArthur since 1998; mother of five.',
-  },
-]
+export default async function TeamPage() {
+  const team = await getTeamMembers()
 
-export default function TeamPage() {
   return (
     <>
       {/* ── Page header ───────────────────────────────────────── */}
@@ -125,13 +64,24 @@ export default function TeamPage() {
                         position: 'relative',
                       }}
                     >
-                      <Image
-                        src={member.photo}
-                        alt={member.name}
-                        fill
-                        style={{ objectFit: 'cover', objectPosition: 'top' }}
-                        sizes="220px"
-                      />
+                      {member.photo ? (
+                        <Image
+                          src={member.photo}
+                          alt={member.name}
+                          fill
+                          style={{ objectFit: 'cover', objectPosition: 'top' }}
+                          sizes="220px"
+                        />
+                      ) : (
+                        <div
+                          className="absolute inset-0 flex items-center justify-center"
+                          style={{ background: 'var(--charcoal)' }}
+                        >
+                          <span className="font-display font-light text-cream" style={{ fontSize: '2.5rem' }}>
+                            {member.initials}
+                          </span>
+                        </div>
+                      )}
                     </div>
                     <h2 className="font-display font-light text-charcoal mb-1" style={{ fontSize: '1.75rem', lineHeight: 1.1 }}>
                       {member.name}
