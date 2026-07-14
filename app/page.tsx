@@ -2,8 +2,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import StatCounter from '@/components/StatCounter'
 import ScrollReveal from '@/components/ScrollReveal'
+import { getCurrentProjects } from '@/lib/completed-projects'
 
-export default function Home() {
+export default async function Home() {
+  const currentProjects = await getCurrentProjects()
+
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
@@ -237,33 +240,37 @@ export default function Home() {
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px" style={{ background: 'var(--border)' }}>
-            {[
-              { name: 'Evermore', slug: 'evermore', location: 'Mooresville, NC', units: '216 Units', type: 'Multifamily', cls: 'proj-img-1' },
-              { name: 'The Venue on S. Main', slug: 'venue-on-s-main', location: 'Cornelius, NC', units: '73 Units', type: 'Mixed Use', cls: 'proj-img-2' },
-              { name: 'Bowery West', slug: 'bowery-west', location: 'Charlotte, NC', units: '213 Units', type: 'Townhomes & Apartments', cls: 'proj-img-3' },
-              { name: 'Christenbury Apartments', slug: 'christenbury', location: 'Concord, NC', units: '156 Units', type: 'Mixed Use', cls: 'proj-img-4' },
-              { name: 'Halcyon', slug: 'halcyon', location: 'Charleston, SC', units: '204 Units', type: 'Multifamily', cls: 'proj-img-5' },
-              { name: 'Hamilton Reserve', slug: 'hamilton-reserve', location: 'Greensboro, NC', units: '6 Buildings', type: 'Multifamily', cls: 'proj-img-6' },
-            ].map((proj, i) => (
-              <ScrollReveal key={proj.name} delay={i * 100}>
-                <Link href={`/current-projects#${proj.slug}`} className="block">
+            {currentProjects.slice(0, 6).map((proj, i) => (
+              <ScrollReveal key={proj.slug} delay={i * 100}>
+                <Link href={`/current-projects/${proj.slug}`} className="block">
                   <div className="project-card bg-warm-white">
-                    <div className={`project-card-img aspect-[4/3] ${proj.cls} flex items-end p-6`}>
-                      <span
-                        className="label-sm inline-flex items-center justify-center"
-                        style={{
-                          color: '#F4EFE6',
-                          background: 'rgba(0,0,0,0.35)',
-                          borderRadius: '9999px',
-                          padding: '0.6em 1em',
-                          backdropFilter: 'blur(2px)',
-                        }}
-                      >
-                        {proj.units}
-                      </span>
+                    <div className="project-card-img aspect-[4/3] flex items-end p-6" style={{ position: 'relative' }}>
+                      {proj.heroImage && (
+                        <Image
+                          src={proj.heroImage}
+                          alt={proj.name}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                        />
+                      )}
+                      {proj.units && parseInt(proj.units, 10) > 0 && (
+                        <span
+                          className="label-sm inline-flex items-center justify-center"
+                          style={{
+                            position: 'relative',
+                            color: '#F4EFE6',
+                            background: 'rgba(0,0,0,0.35)',
+                            borderRadius: '9999px',
+                            padding: '0.6em 1em',
+                            backdropFilter: 'blur(2px)',
+                          }}
+                        >
+                          {proj.units} Units
+                        </span>
+                      )}
                     </div>
                     <div className="p-6">
-                      <p className="label-sm mb-2">{proj.type}</p>
                       <h3 className="font-display font-light text-xl text-charcoal mb-1">{proj.name}</h3>
                       <p className="font-sans text-sm" style={{ color: 'var(--warm-gray)' }}>{proj.location}</p>
                     </div>
