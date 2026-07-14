@@ -48,15 +48,19 @@ export default async function CurrentProjectsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: 'var(--border)' }}>
             {projects.map((proj, i) => (
               <ScrollReveal key={proj.slug} delay={i * 80}>
-                <div id={proj.slug} className="project-card bg-warm-white flex flex-col h-full">
+                <Link
+                  href={`/current-projects/${proj.slug}`}
+                  id={proj.slug}
+                  className="project-card bg-warm-white flex flex-col h-full group"
+                >
                   {/* Image */}
-                  <div style={{ height: '220px', position: 'relative' }}>
+                  <div className="overflow-hidden" style={{ height: '220px', position: 'relative' }}>
                     {proj.heroImage && (
                       <Image
                         src={proj.heroImage}
                         alt={proj.name}
                         fill
-                        className="object-cover"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     )}
@@ -69,11 +73,29 @@ export default async function CurrentProjectsPage() {
                         Under Construction
                       </span>
                     </div>
+                    {proj.images.length > 1 && (
+                      <div className="absolute top-4 right-4">
+                        <span
+                          className="font-sans px-2 py-1"
+                          style={{
+                            background: 'rgba(26,23,20,0.65)',
+                            color: 'rgba(244,239,230,0.7)',
+                            letterSpacing: '0.1em',
+                            fontSize: '0.6rem',
+                          }}
+                        >
+                          {proj.images.length} PHOTOS
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Content */}
                   <div className="p-6 flex flex-col flex-1">
-                    <h3 className="font-display font-light text-charcoal mb-1" style={{ fontSize: '1.4rem' }}>
+                    <h3
+                      className="font-display font-light text-charcoal mb-1 transition-colors group-hover:text-bronze"
+                      style={{ fontSize: '1.4rem' }}
+                    >
                       {proj.name}
                     </h3>
                     <p className="font-sans text-xs mb-4" style={{ color: 'var(--warm-gray)' }}>
@@ -82,8 +104,14 @@ export default async function CurrentProjectsPage() {
                     <p className="font-sans text-sm leading-relaxed flex-1" style={{ color: 'var(--warm-gray)' }}>
                       {proj.description}
                     </p>
+                    <span
+                      className="font-sans text-xs mt-6 transition-opacity opacity-60 group-hover:opacity-100"
+                      style={{ color: 'var(--bronze)', letterSpacing: '0.12em' }}
+                    >
+                      VIEW PROJECT →
+                    </span>
                   </div>
-                </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>
