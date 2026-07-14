@@ -12,8 +12,6 @@ const tabs = ['Overview', 'Gallery'] as const
 type Tab = typeof tabs[number]
 
 export default function ProjectTabs({ project }: Props) {
-  const imgPath = (filename: string) =>
-    `/images/completed-projects/${project.slug}/${encodeURIComponent(filename)}`
   const [active, setActive] = useState<Tab>('Overview')
 
   const hasOverviewContent =
@@ -201,7 +199,7 @@ export default function ProjectTabs({ project }: Props) {
                   style={{ aspectRatio: '4/3' }}
                 >
                   <Image
-                    src={imgPath(img)}
+                    src={img}
                     alt={`${project.name} — photo ${i + 1}`}
                     fill
                     className="object-cover transition-transform duration-500 hover:scale-105"

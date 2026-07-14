@@ -1,15 +1,17 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-import { completedProjects } from '@/lib/completed-projects'
+import { getCompletedProjects } from '@/lib/completed-projects'
 import ProjectTabs from '@/components/ProjectTabs'
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const completedProjects = await getCompletedProjects()
   return completedProjects.map((p) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const { slug } = params
+  const completedProjects = await getCompletedProjects()
   const project = completedProjects.find((p) => p.slug === slug)
   if (!project) return {}
   return {
@@ -22,23 +24,26 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
   const { slug } = params
+  const completedProjects = await getCompletedProjects()
   const project = completedProjects.find((p) => p.slug === slug)
   if (!project) notFound()
 
-  const heroSrc = `/images/completed-projects/${project.slug}/${encodeURIComponent(project.heroImage)}`
+  const heroSrc = project.heroImage
 
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────── */}
-      <section className="relative" style={{ height: 'clamp(360px, 55vh, 640px)' }}>
-        <Image
-          src={heroSrc}
-          alt={project.name}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
+      <section className="relative bg-charcoal" style={{ height: 'clamp(360px, 55vh, 640px)' }}>
+        {heroSrc && (
+          <Image
+            src={heroSrc}
+            alt={project.name}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        )}
         <div
           className="absolute inset-0"
           style={{ background: 'linear-gradient(to bottom, rgba(26,23,20,0.35) 0%, rgba(26,23,20,0.65) 100%)' }}

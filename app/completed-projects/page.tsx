@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import ScrollReveal from '@/components/ScrollReveal'
-import { completedProjects } from '@/lib/completed-projects'
+import { getCompletedProjects } from '@/lib/completed-projects'
 
 export const metadata = {
   title: 'Completed Projects — Mission Properties',
@@ -9,7 +9,9 @@ export const metadata = {
     'Mission Properties has delivered multifamily developments comprising thousands of rental units across the Southeastern United States.',
 }
 
-export default function CompletedProjectsPage() {
+export default async function CompletedProjectsPage() {
+  const completedProjects = await getCompletedProjects()
+
   return (
     <>
       {/* ── Page header ───────────────────────────────────────── */}
@@ -70,14 +72,16 @@ export default function CompletedProjectsPage() {
                 <Link href={`/completed-projects/${proj.slug}`} className="block group">
                   <div className="bg-warm-white">
                     {/* Image */}
-                    <div className="relative overflow-hidden" style={{ height: '260px' }}>
-                      <Image
-                        src={`/images/completed-projects/${proj.slug}/${encodeURIComponent(proj.heroImage)}`}
-                        alt={proj.name}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
+                    <div className="relative overflow-hidden bg-cream" style={{ height: '260px' }}>
+                      {proj.heroImage && (
+                        <Image
+                          src={proj.heroImage}
+                          alt={proj.name}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      )}
                       <div className="absolute inset-0 bg-charcoal opacity-20 group-hover:opacity-10 transition-opacity duration-300" />
                       <div className="absolute top-4 right-4">
                         <span
