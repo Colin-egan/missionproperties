@@ -59,6 +59,7 @@ export default function ProjectGallery({ images, projectName }: Props) {
           alt={alt}
           onIndexChange={setOpenAt}
           onClose={() => setOpenAt(null)}
+          projectName={projectName}
         />
       )}
     </>

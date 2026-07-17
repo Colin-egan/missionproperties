@@ -44,8 +44,8 @@ export default async function Home() {
               </p>
             </div>
 
-            {/* Main heading */}
-            <h1 className="text-display-xl text-cream mb-6">
+            {/* Main heading (desktop: overlaid on the hero image) */}
+            <h1 className="hidden md:block text-display-xl text-cream mb-6">
               Mission
               <br />
               Properties
@@ -78,9 +78,14 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* CTA row (mobile: below the hero image) */}
+      {/* Heading + CTA row (mobile: below the hero image) */}
       <div className="md:hidden" style={{ background: 'var(--charcoal)' }}>
-        <div className="container-site py-8">
+        <div className="container-site pt-8 pb-8">
+          <h1 className="text-display-xl text-cream mb-6">
+            Mission
+            <br />
+            Properties
+          </h1>
           <div className="flex flex-col gap-4">
             <Link href="/current-projects" className="btn-outline-bronze">
               View Our Projects
