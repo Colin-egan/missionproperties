@@ -6,7 +6,7 @@ import { getTeamMembers } from '@/lib/team'
 export const metadata = {
   title: 'Our Team — Mission Properties',
   description:
-    'Meet the Mission Properties team: Jason McArthur, Tom Egan, Tara Bechstein, and Jennifer McArthur — decades of combined expertise in multifamily development.',
+    'Meet the Mission Properties team: Jason McArthur, Jordan McCarley, Tom Egan, Tara Bechstein, and Jennifer McArthur — decades of combined expertise in multifamily development.',
 }
 
 export default async function TeamPage() {

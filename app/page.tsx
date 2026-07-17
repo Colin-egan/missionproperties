@@ -16,11 +16,11 @@ export default async function Home() {
       >
         {/* Background property photo */}
         <Image
-          src="/images/prop-hero.png"
-          alt="Mission Properties development"
+          src="/images/property-hero.jpeg"
+          alt="Mission Properties leadership on-site at a Charlotte development"
           fill
           priority
-          className="object-cover object-[50%_20%] sm:object-center"
+          className="object-cover object-[50%_30%] sm:object-[50%_20%] md:object-center"
           sizes="100vw"
         />
 
@@ -293,7 +293,7 @@ export default async function Home() {
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
               {
                 name: 'Jason McArthur',
@@ -301,6 +301,13 @@ export default async function Home() {
                 highlight: '$2.5B+',
                 desc: 'in apartment projects across the Southeast over 30+ years',
                 initials: 'JM',
+              },
+              {
+                name: 'Jordan McCarley',
+                title: 'Principal',
+                highlight: '$20B+',
+                desc: 'in sales volume across 700+ capital markets transactions',
+                initials: 'JC',
               },
               {
                 name: 'Tom Egan',
