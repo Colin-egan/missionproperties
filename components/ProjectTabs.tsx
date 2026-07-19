@@ -130,7 +130,7 @@ export default function ProjectTabs({ project, status = 'Completed' }: Props) {
                             </p>
                             <p
                               className="font-sans text-sm font-medium"
-                              style={{ color: 'var(--charcoal)' }}
+                              style={{ color: label === 'Status' ? 'var(--bronze)' : 'var(--charcoal)' }}
                             >
                               {value}
                             </p>

@@ -7,6 +7,8 @@ export interface CompletedProject {
   name: string
   location: string
   address: string
+  latitude: number | null
+  longitude: number | null
   heroImage: string
   images: string[]
   units?: string
@@ -25,6 +27,8 @@ type ProjectRow = {
   name: string
   location: string | null
   address: string | null
+  latitude: number | null
+  longitude: number | null
   hero_image: string | null
   images: string[]
   units: string | null
@@ -39,7 +43,7 @@ type ProjectRow = {
 }
 
 const PROJECT_COLUMNS =
-  "slug, name, location, address, hero_image, images, units, unit_types, square_footage, year_completed, description, amenities, features, phase, website_url"
+  "slug, name, location, address, latitude, longitude, hero_image, images, units, unit_types, square_footage, year_completed, description, amenities, features, phase, website_url"
 
 export const PHASE_LABELS: Record<ProjectPhase, string> = {
   under_construction: "Under Construction",
@@ -52,6 +56,8 @@ function toCompletedProject(row: ProjectRow): CompletedProject {
     name: row.name,
     location: row.location ?? "",
     address: row.address ?? "",
+    latitude: row.latitude,
+    longitude: row.longitude,
     heroImage: row.hero_image ?? row.images[0] ?? "",
     images: row.images,
     units: row.units ?? undefined,
@@ -85,6 +91,18 @@ export async function getCompletedProjects(): Promise<CompletedProject[]> {
 
 export async function getCurrentProjects(): Promise<CompletedProject[]> {
   return getProjectsByStatus("current")
+}
+
+export async function getAllProjects(): Promise<CompletedProject[]> {
+  const { data, error } = await supabase
+    .from("projects")
+    .select(PROJECT_COLUMNS)
+    .eq("client_id", CLIENT_ID)
+    .order("sort_order", { ascending: true })
+
+  if (error || !data) return []
+
+  return data.map((row) => toCompletedProject(row as ProjectRow))
 }
 
 // The Anderson Flats hero photo doubles as the background image for every

@@ -2,10 +2,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import StatCounter from '@/components/StatCounter'
 import ScrollReveal from '@/components/ScrollReveal'
-import { getCurrentProjects } from '@/lib/completed-projects'
+import ProjectsMap from '@/components/ProjectsMap'
+import { getCurrentProjects, getAllProjects } from '@/lib/completed-projects'
 
 export default async function Home() {
-  const currentProjects = await getCurrentProjects()
+  const [currentProjects, allProjects] = await Promise.all([
+    getCurrentProjects(),
+    getAllProjects(),
+  ])
 
   return (
     <>
@@ -166,17 +170,9 @@ export default async function Home() {
             {/* Visual block */}
             <ScrollReveal delay={150}>
               <div className="relative">
-                {/* Primary image block */}
-                <div
-                  className="relative overflow-hidden aspect-[4/3] md:aspect-auto md:h-[420px]"
-                >
-                  <Image
-                    src="/images/markets-map.jpeg"
-                    alt="Map of Mission Properties markets across North and South Carolina, including Charlotte, Raleigh, Asheville, Hickory, Rock Hill, and Charleston"
-                    fill
-                    className="object-cover object-[50%_20%] sm:object-center"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+                {/* Interactive project map */}
+                <div className="relative overflow-hidden">
+                  <ProjectsMap projects={allProjects} />
                 </div>
 
                 {/* Stat card: stacked below the image on mobile, floating on desktop */}
