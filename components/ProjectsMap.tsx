@@ -131,7 +131,7 @@ export default function ProjectsMap({ projects }: ProjectsMapProps) {
   if (tokenMissing) {
     return (
       <div
-        className="flex items-center justify-center aspect-[4/3] md:aspect-auto md:h-[420px]"
+        className="flex items-center justify-center aspect-[4/5] md:aspect-auto md:h-[420px]"
         style={{ background: 'var(--border)', color: 'var(--warm-gray)' }}
       >
         <p className="font-sans text-sm px-6 text-center">Map unavailable — missing Mapbox token.</p>
@@ -142,7 +142,7 @@ export default function ProjectsMap({ projects }: ProjectsMapProps) {
   return (
     <div
       ref={containerRef}
-      className="aspect-[4/3] md:aspect-auto md:h-[420px]"
+      className="aspect-[4/5] md:aspect-auto md:h-[420px]"
       style={{ width: '100%' }}
     />
   )
