@@ -60,8 +60,8 @@ export default async function CurrentProjectPage({ params }: { params: { slug: s
             </Link>
             <div className="mb-4">
               <span
-                className="font-sans text-xs px-2.5 py-1"
-                style={{ background: 'rgba(26,23,20,0.7)', color: 'var(--bronze)', letterSpacing: '0.12em' }}
+                className="font-sans text-xs"
+                style={{ color: 'var(--charcoal)', letterSpacing: '0.12em' }}
               >
                 {phaseLabel}
               </span>

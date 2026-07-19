@@ -50,8 +50,8 @@ export default async function CurrentProjectsPage() {
                     {/* Status badge */}
                     <div className="absolute top-4 left-4">
                       <span
-                        className="font-sans text-xs px-2.5 py-1"
-                        style={{ background: 'rgba(26,23,20,0.7)', color: 'var(--bronze)', letterSpacing: '0.12em' }}
+                        className="font-sans text-xs"
+                        style={{ color: 'var(--charcoal)', letterSpacing: '0.12em' }}
                       >
                         {PHASE_LABELS[proj.phase ?? 'under_construction']}
                       </span>
