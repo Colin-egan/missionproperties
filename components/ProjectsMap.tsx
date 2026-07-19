@@ -43,6 +43,13 @@ export default function ProjectsMap({ projects }: ProjectsMapProps) {
 
     map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), 'top-right')
 
+    if (!document.getElementById('mp-mapbox-popup-style')) {
+      const style = document.createElement('style')
+      style.id = 'mp-mapbox-popup-style'
+      style.textContent = '.mapboxgl-popup-content{padding:0;overflow:hidden;border-radius:4px;}'
+      document.head.appendChild(style)
+    }
+
     const bounds = new mapboxgl.LngLatBounds()
     const openPopups = new Set<mapboxgl.Popup>()
 
@@ -58,13 +65,22 @@ export default function ProjectsMap({ projects }: ProjectsMapProps) {
       el.style.boxShadow = '0 1px 4px rgba(26,23,20,0.4)'
       el.style.cursor = 'pointer'
 
-      const popup = new mapboxgl.Popup({ offset: 16, closeButton: false }).setHTML(
-        `<div style="padding: 2px;">
-          <div style="font-weight: 600; font-size: 0.85rem; color: #1A1714; margin-bottom: 2px;">${escapeHtml(
-            project.name
-          )}</div>
-          <div style="font-size: 0.75rem; color: #857D75; margin-bottom: 4px;">${escapeHtml(project.location)}</div>
-          <div style="font-size: 0.68rem; color: #B8773A; letter-spacing: 0.04em;">Click again to view project →</div>
+      const popup = new mapboxgl.Popup({ offset: 16, closeButton: false, maxWidth: '220px' }).setHTML(
+        `<div>
+          ${
+            project.heroImage
+              ? `<img src="${escapeHtml(
+                  project.heroImage
+                )}" alt="" style="width:100%; height:110px; object-fit:cover; display:block;" />`
+              : ''
+          }
+          <div style="padding: 8px 10px 10px;">
+            <div style="font-weight: 600; font-size: 0.85rem; color: #1A1714; margin-bottom: 2px;">${escapeHtml(
+              project.name
+            )}</div>
+            <div style="font-size: 0.75rem; color: #857D75; margin-bottom: 4px;">${escapeHtml(project.location)}</div>
+            <div style="font-size: 0.68rem; color: #B8773A; letter-spacing: 0.04em;">Click again to view project →</div>
+          </div>
         </div>`
       )
 
