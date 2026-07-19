@@ -10,12 +10,13 @@ interface Props {
   onIndexChange: (i: number) => void
   onClose: () => void
   projectName?: string
+  location?: string
 }
 
 const MAX_SCALE = 4
 const ZOOM_STEP = 2.5
 
-export default function Lightbox({ images, index, alt, onIndexChange, onClose, projectName }: Props) {
+export default function Lightbox({ images, index, alt, onIndexChange, onClose, projectName, location }: Props) {
   const [scale, setScale] = useState(1)
   const [offset, setOffset] = useState({ x: 0, y: 0 })
   const frameRef = useRef<HTMLDivElement>(null)
@@ -231,20 +232,33 @@ export default function Lightbox({ images, index, alt, onIndexChange, onClose, p
           }}
         />
         {projectName && (
-          <span
+          <div
             aria-hidden
-            className="absolute bottom-4 left-4 font-sans text-xs pointer-events-none"
+            className="absolute bottom-4 left-4 font-sans pointer-events-none"
             style={{
               background: 'rgba(26,23,20,0.55)',
-              color: 'rgba(244,239,230,0.85)',
-              letterSpacing: '0.08em',
-              padding: '0.35rem 0.85rem',
-              borderRadius: '999px',
+              color: 'rgba(244,239,230,0.9)',
+              padding: '0.5rem 1rem',
+              borderRadius: '10px',
               backdropFilter: 'blur(4px)',
             }}
           >
-            {projectName.toUpperCase()}
-          </span>
+            <div style={{ fontSize: '0.95rem', letterSpacing: '0.06em' }}>
+              {projectName.toUpperCase()}
+            </div>
+            {location && (
+              <div
+                style={{
+                  fontSize: '0.65rem',
+                  letterSpacing: '0.08em',
+                  color: 'rgba(244,239,230,0.65)',
+                  marginTop: '0.15rem',
+                }}
+              >
+                {location}
+              </div>
+            )}
+          </div>
         )}
       </div>
 

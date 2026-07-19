@@ -7,9 +7,10 @@ import Lightbox from './Lightbox'
 interface Props {
   images: string[]
   projectName: string
+  location?: string
 }
 
-export default function ProjectGallery({ images, projectName }: Props) {
+export default function ProjectGallery({ images, projectName, location }: Props) {
   const [openAt, setOpenAt] = useState<number | null>(null)
   const alt = (i: number) => `${projectName} — photo ${i + 1}`
 
@@ -60,6 +61,7 @@ export default function ProjectGallery({ images, projectName }: Props) {
           onIndexChange={setOpenAt}
           onClose={() => setOpenAt(null)}
           projectName={projectName}
+          location={location}
         />
       )}
     </>

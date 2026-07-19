@@ -29,7 +29,7 @@ export default async function Home() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to top, rgba(26,23,20,0.92) 0%, rgba(26,23,20,0.55) 50%, rgba(26,23,20,0.35) 100%)',
+              'linear-gradient(to top, rgba(26,23,20,0.72) 0%, rgba(26,23,20,0.4) 50%, rgba(26,23,20,0.18) 100%)',
           }}
         />
 
@@ -323,7 +323,7 @@ export default async function Home() {
               },
             ].map((member, i) => (
               <ScrollReveal key={member.name} delay={i * 100}>
-                <div className="team-card text-center">
+                <Link href="/team" className="team-card text-center block">
                   {/* Monogram */}
                   <div
                     className="w-20 h-20 mx-auto mb-5 flex items-center justify-center"
@@ -349,7 +349,7 @@ export default async function Home() {
                   <p className="font-sans text-xs mt-1" style={{ color: 'rgba(244,239,230,0.4)', maxWidth: '22ch', margin: '0.25rem auto 0' }}>
                     {member.desc}
                   </p>
-                </div>
+                </Link>
               </ScrollReveal>
             ))}
           </div>

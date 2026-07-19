@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import ScrollReveal from '@/components/ScrollReveal'
+import PageHeader from '@/components/PageHeader'
 import { getTeamMembers } from '@/lib/team'
+import { getHeaderImage } from '@/lib/completed-projects'
 
 export const metadata = {
   title: 'Our Team — Mission Properties',
@@ -10,37 +12,19 @@ export const metadata = {
 }
 
 export default async function TeamPage() {
-  const team = await getTeamMembers()
+  const [team, headerImage] = await Promise.all([getTeamMembers(), getHeaderImage()])
 
   return (
     <>
       {/* ── Page header ───────────────────────────────────────── */}
-      <section
-        className="relative pt-36 pb-20 md:pt-44 md:pb-28"
-        style={{ background: 'var(--charcoal)' }}
-      >
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(244,239,230,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(244,239,230,0.8) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
-          }}
-        />
-        <div className="container-site relative z-10">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="bronze-rule" />
-            <p className="label-md" style={{ color: 'rgba(244,239,230,0.4)' }}>About Us</p>
-          </div>
-          <h1 className="text-display-lg text-cream mb-4">Our Team</h1>
-          <p
-            className="font-display font-light"
-            style={{ fontStyle: 'italic', fontSize: 'clamp(1.1rem, 2.5vw, 1.75rem)', color: 'rgba(244,239,230,0.5)', maxWidth: '40ch' }}
-          >
-            Decades of combined expertise in development, capital markets & construction
-          </p>
-        </div>
-      </section>
+      <PageHeader eyebrow="About Us" title="Our Team" headerImage={headerImage}>
+        <p
+          className="font-display font-light"
+          style={{ fontStyle: 'italic', fontSize: 'clamp(1.1rem, 2.5vw, 1.75rem)', color: 'rgba(244,239,230,0.5)', maxWidth: '40ch' }}
+        >
+          Decades of combined expertise in development, capital markets & construction
+        </p>
+      </PageHeader>
 
       {/* ── Team members ──────────────────────────────────────── */}
       <section className="section-pad">

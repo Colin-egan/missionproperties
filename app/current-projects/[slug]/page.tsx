@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getCurrentProjects } from '@/lib/completed-projects'
+import { getCurrentProjects, PHASE_LABELS } from '@/lib/completed-projects'
 import ProjectTabs from '@/components/ProjectTabs'
 
 export async function generateStaticParams() {
@@ -29,6 +29,7 @@ export default async function CurrentProjectPage({ params }: { params: { slug: s
   if (!project) notFound()
 
   const heroSrc = project.heroImage
+  const phaseLabel = PHASE_LABELS[project.phase ?? 'under_construction']
 
   return (
     <>
@@ -62,7 +63,7 @@ export default async function CurrentProjectPage({ params }: { params: { slug: s
                 className="font-sans text-xs px-2.5 py-1"
                 style={{ background: 'rgba(26,23,20,0.7)', color: 'var(--bronze)', letterSpacing: '0.12em' }}
               >
-                Under Construction
+                {phaseLabel}
               </span>
             </div>
             <h1 className="text-display-lg text-cream mb-2">{project.name}</h1>
@@ -74,7 +75,7 @@ export default async function CurrentProjectPage({ params }: { params: { slug: s
       </section>
 
       {/* ── Tabs: Overview + Gallery ──────────────────────────── */}
-      <ProjectTabs project={project} status="Under Construction" />
+      <ProjectTabs project={project} status={phaseLabel} />
 
       {/* ── Navigation ────────────────────────────────────────── */}
       <section className="section-pad-sm" style={{ background: 'var(--charcoal)' }}>

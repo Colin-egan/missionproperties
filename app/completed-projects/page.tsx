@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import ScrollReveal from '@/components/ScrollReveal'
-import { getCompletedProjects } from '@/lib/completed-projects'
+import PageHeader from '@/components/PageHeader'
+import { getCompletedProjects, getHeaderImage } from '@/lib/completed-projects'
 
 export const metadata = {
   title: 'Completed Projects — Mission Properties',
@@ -10,38 +11,20 @@ export const metadata = {
 }
 
 export default async function CompletedProjectsPage() {
-  const completedProjects = await getCompletedProjects()
+  const [completedProjects, headerImage] = await Promise.all([getCompletedProjects(), getHeaderImage()])
 
   return (
     <>
       {/* ── Page header ───────────────────────────────────────── */}
-      <section
-        className="relative pt-36 pb-20 md:pt-44 md:pb-28"
-        style={{ background: 'var(--charcoal)' }}
-      >
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(244,239,230,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(244,239,230,0.8) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
-          }}
-        />
-        <div className="container-site relative z-10">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="bronze-rule" />
-            <p className="label-md" style={{ color: 'rgba(244,239,230,0.4)' }}>Portfolio</p>
-          </div>
-          <h1 className="text-display-lg text-cream mb-4">Completed Projects</h1>
-          <p
-            className="font-sans text-base"
-            style={{ color: 'rgba(244,239,230,0.5)', maxWidth: '52ch' }}
-          >
-            {completedProjects.length} developments delivered across the Carolinas and greater Southeast — from
-            boutique loft communities to institutional-scale multifamily properties.
-          </p>
-        </div>
-      </section>
+      <PageHeader eyebrow="Portfolio" title="Completed Projects" headerImage={headerImage}>
+        <p
+          className="font-sans text-base"
+          style={{ color: 'rgba(244,239,230,0.5)', maxWidth: '52ch' }}
+        >
+          {completedProjects.length} developments delivered across the Carolinas and greater Southeast — from
+          boutique loft communities to institutional-scale multifamily properties.
+        </p>
+      </PageHeader>
 
       {/* ── Stats bar ─────────────────────────────────────────── */}
       <section className="py-8" style={{ background: 'var(--warm-white)', borderBottom: '1px solid var(--border)' }}>

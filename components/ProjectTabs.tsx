@@ -139,6 +139,18 @@ export default function ProjectTabs({ project, status = 'Completed' }: Props) {
                       })}
                   </div>
                 </div>
+
+                {/* Project website */}
+                {project.websiteUrl && (
+                  <a
+                    href={project.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-outline-bronze mt-6 w-full"
+                  >
+                    Visit Project Website ↗
+                  </a>
+                )}
               </div>
             </div>
           ) : (
@@ -169,7 +181,7 @@ export default function ProjectTabs({ project, status = 'Completed' }: Props) {
                 Gallery
               </h2>
             </div>
-            <ProjectGallery images={project.images} projectName={project.name} />
+            <ProjectGallery images={project.images} projectName={project.name} location={project.location} />
           </div>
         </section>
       )}
