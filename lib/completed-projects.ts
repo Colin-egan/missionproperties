@@ -1,10 +1,12 @@
 import { supabase, CLIENT_ID } from "@/lib/supabase"
 
 export type ProjectPhase = "under_construction" | "in_pipeline"
+export type ProjectStatus = "current" | "completed"
 
 export interface CompletedProject {
   slug: string
   name: string
+  status: ProjectStatus
   location: string
   address: string
   latitude: number | null
@@ -25,6 +27,7 @@ export interface CompletedProject {
 type ProjectRow = {
   slug: string
   name: string
+  status: string
   location: string | null
   address: string | null
   latitude: number | null
@@ -43,7 +46,7 @@ type ProjectRow = {
 }
 
 const PROJECT_COLUMNS =
-  "slug, name, location, address, latitude, longitude, hero_image, images, units, unit_types, square_footage, year_completed, description, amenities, features, phase, website_url"
+  "slug, name, status, location, address, latitude, longitude, hero_image, images, units, unit_types, square_footage, year_completed, description, amenities, features, phase, website_url"
 
 export const PHASE_LABELS: Record<ProjectPhase, string> = {
   under_construction: "Under Construction",
@@ -54,6 +57,7 @@ function toCompletedProject(row: ProjectRow): CompletedProject {
   return {
     slug: row.slug,
     name: row.name,
+    status: row.status === "current" ? "current" : "completed",
     location: row.location ?? "",
     address: row.address ?? "",
     latitude: row.latitude,
