@@ -48,10 +48,8 @@ type ProjectRow = {
 const PROJECT_COLUMNS =
   "slug, name, status, location, address, latitude, longitude, hero_image, images, units, unit_types, square_footage, year_completed, description, amenities, features, phase, website_url"
 
-// The `under_construction` key is the stored database value; the label shown to
-// visitors is "In Construction", matching the stage picker in the client portal.
 export const PHASE_LABELS: Record<ProjectPhase, string> = {
-  under_construction: "In Construction",
+  under_construction: "Under Construction",
   in_pipeline: "In the Pipeline",
 }
 

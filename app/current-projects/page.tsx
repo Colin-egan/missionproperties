@@ -94,7 +94,7 @@ export default async function CurrentProjectsPage() {
         </p>
       </PageHeader>
 
-      {/* ── In Construction ──────────────────────────────────── */}
+      {/* ── Under Construction ───────────────────────────────── */}
       {underConstruction.length > 0 && (
         <section className="section-pad">
           <div className="container-site">
