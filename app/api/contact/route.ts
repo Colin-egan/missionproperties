@@ -9,7 +9,7 @@ const TO_EMAILS = (process.env.CONTACT_TO_EMAILS ?? 'tom@missionprop.com,jason@m
   .filter(Boolean)
 
 const FROM_EMAIL =
-  process.env.CONTACT_FROM_EMAIL ?? 'Mission Properties Website <noreply@contact.eganlab.com>'
+  process.env.CONTACT_FROM_EMAIL ?? 'Mission Properties Website <mission@contact.eganlab.com>'
 
 /** Generous ceilings — long enough for a real inquiry, short enough to blunt abuse. */
 const LIMITS = {
