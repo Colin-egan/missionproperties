@@ -10,12 +10,38 @@ export default function ContactForm() {
     company: '',
     subject: '',
     message: '',
+    company_website: '', // Honeypot — hidden from humans, filled by bots.
   })
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    if (sending) return
+
+    setSending(true)
+    setError(null)
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      const data = await res.json().catch(() => ({}))
+
+      if (!res.ok) {
+        setError(data.error ?? 'Something went wrong. Please try again.')
+        return
+      }
+
+      setSubmitted(true)
+    } catch {
+      setError('We could not reach the server. Please check your connection and try again.')
+    } finally {
+      setSending(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -122,9 +148,50 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {/* Honeypot — visually hidden, off the tab order, invisible to screen readers. */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', opacity: 0 }}>
+        <label>
+          Company Website
+          <input
+            type="text"
+            name="company_website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={formData.company_website}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+
+      {error && (
+        <div
+          role="alert"
+          className="mt-8 font-sans text-sm"
+          style={{ color: 'var(--charcoal)', borderLeft: '2px solid var(--bronze)', paddingLeft: '1rem' }}
+        >
+          {error}
+          <div className="mt-2" style={{ color: 'var(--warm-gray)' }}>
+            You can also reach us at{' '}
+            <a href="mailto:info@missionprop.com" className="transition-colors hover:text-bronze" style={{ textDecoration: 'underline' }}>
+              info@missionprop.com
+            </a>{' '}
+            or{' '}
+            <a href="tel:9809202200" className="transition-colors hover:text-bronze" style={{ textDecoration: 'underline' }}>
+              (980) 920-2200
+            </a>
+            .
+          </div>
+        </div>
+      )}
+
       <div className="mt-8">
-        <button type="submit" className="btn-primary">
-          Send Message
+        <button
+          type="submit"
+          className="btn-primary"
+          disabled={sending}
+          style={sending ? { opacity: 0.6, cursor: 'not-allowed' } : undefined}
+        >
+          {sending ? 'Sending…' : 'Send Message'}
         </button>
       </div>
     </form>
